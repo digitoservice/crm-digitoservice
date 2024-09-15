@@ -11,15 +11,15 @@ export const baseSchema = (
   return {
     openapi: '3.0.3',
     info: {
-      title: 'Twenty Api',
-      description: `This is a **Twenty REST/API** playground based on the **OpenAPI 3.0 specification**.`,
-      termsOfService: 'https://github.com/twentyhq/twenty?tab=coc-ov-file',
+      title: 'CRM - Digito Service Api',
+      description: `This is a **CRM - Digito Service REST/API** playground based on the **OpenAPI 3.0 specification**.`,
+      termsOfService: 'https://github.com/digitoservice/crm-digitoservice?tab=coc-ov-file',
       contact: {
-        email: 'felix@twenty.com',
+        email: 'oi@digitoservice.com',
       },
       license: {
         name: 'AGPL-3.0',
-        url: 'https://github.com/twentyhq/twenty?tab=AGPL-3.0-1-ov-file#readme',
+        url: 'https://github.com/digitoservice/crm-digitoservice?tab=License-1-ov-file',
       },
       version: API_Version,
     },
@@ -47,8 +47,8 @@ export const baseSchema = (
       },
     ],
     externalDocs: {
-      description: 'Find out more about **Twenty**',
-      url: 'https://twenty.com',
+      description: 'Find out more about **CRM - Digito Service**',
+      url: 'https://digitoservice.com',
     },
     paths: { [`/open-api/${schemaName}`]: computeOpenApiPath(serverUrl) },
   };

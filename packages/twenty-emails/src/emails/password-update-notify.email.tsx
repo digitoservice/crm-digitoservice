@@ -17,7 +17,7 @@ export const PasswordUpdateNotifyEmail = ({
   email,
   link,
 }: PasswordUpdateNotifyEmailProps) => {
-  const helloString = userName?.length > 1 ? `Querido(a) ${userName}` : 'Querido(a)';
+  const helloString = userName?.length > 1 ? `Prezado(a) ${userName}` : 'Prezado(a)';
   return (
     <BaseEmail>
       <Title value="Senha atualizada" />
