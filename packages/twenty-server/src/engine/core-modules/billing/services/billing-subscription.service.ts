@@ -137,6 +137,10 @@ export class BillingSubscriptionService {
   }
 
   async handleUnpaidInvoices(data: Stripe.SetupIntentSucceededEvent.Data) {
+    if (!data.object.customer) {
+      return;
+    }
+
     const billingSubscription = await this.getCurrentBillingSubscriptionOrThrow(
       { stripeCustomerId: data.object.customer as string },
     );
