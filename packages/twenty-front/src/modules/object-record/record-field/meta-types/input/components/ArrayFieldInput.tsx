@@ -19,11 +19,11 @@ export const ArrayFieldInput = ({ onCancel }: ArrayFieldInputProps) => {
   return (
     <MultiItemFieldInput
       hotkeyScope={hotkeyScope}
-      newItemLabel="Add Item"
+      newItemLabel="Adicionar Item"
       items={arrayItems}
       onPersist={persistArrayField}
       onCancel={onCancel}
-      placeholder="Enter value"
+      placeholder="Insira o valor"
       fieldMetadataType={FieldMetadataType.Array}
       renderItem={({ value, index, handleEdit, handleDelete }) => (
         <ArrayFieldMenuItem
