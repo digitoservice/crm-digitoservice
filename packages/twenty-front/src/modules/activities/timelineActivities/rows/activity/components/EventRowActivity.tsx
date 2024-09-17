@@ -49,7 +49,7 @@ export const EventRowActivity = ({
     ? activityInStore?.title
     : isNonEmptyString(event.linkedRecordCachedName)
       ? event.linkedRecordCachedName
-      : 'Untitled';
+      : 'Sem título';
 
   const openActivityRightDrawer = useOpenActivityRightDrawer({
     objectNameSingular,

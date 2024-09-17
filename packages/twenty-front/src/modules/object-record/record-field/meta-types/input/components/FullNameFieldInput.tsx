@@ -8,10 +8,10 @@ import { usePersistField } from '../../../hooks/usePersistField';
 import { FieldInputEvent } from './DateTimeFieldInput';
 
 const FIRST_NAME_PLACEHOLDER_WITH_SPECIAL_CHARACTER_TO_AVOID_PASSWORD_MANAGERS =
-  'F‌‌irst name';
+  'N‌‌ome';
 
 const LAST_NAME_PLACEHOLDER_WITH_SPECIAL_CHARACTER_TO_AVOID_PASSWORD_MANAGERS =
-  'L‌‌ast name';
+  'S‌‌obrenome';
 
 type FullNameFieldInputProps = {
   onClickOutside?: FieldInputEvent;
