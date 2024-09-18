@@ -103,7 +103,8 @@ export const SettingsAccountsMessageChannelDetails = ({
           parameters={[
             {
               title: 'Excluir emails não profissionais',
-              description: 'Não sincronizar emails de/para Gmail, Outlook...',
+              description:
+                'Não criar contatos de/para emails do Gmail, Outlook',
               value: !!messageChannel.excludeNonProfessionalEmails,
               onToggle: handleIsNonProfessionalEmailExcludedToggle,
             },
