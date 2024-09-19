@@ -38,6 +38,7 @@ import { TableRow } from '../../modules/ui/layout/table/components/TableRow';
 import { TableCell } from '../../modules/ui/layout/table/components/TableCell';
 import { Status } from '../../modules/ui/display/status/components/Status';
 import { formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { useResendWorkspaceInvitation } from '../../modules/workspace-invitation/hooks/useResendWorkspaceInvitation';
 import { isDefined } from '~/utils/isDefined';
 import { useDeleteWorkspaceInvitation } from '../../modules/workspace-invitation/hooks/useDeleteWorkspaceInvitation';
@@ -121,7 +122,7 @@ export const SettingsWorkspaceMembers = () => {
     const expiresAtDate = new Date(expiresAt);
     return expiresAtDate < new Date()
       ? 'Expirado'
-      : formatDistanceToNow(new Date(expiresAt));
+      : formatDistanceToNow(new Date(expiresAt), { locale: ptBR });
   };
 
   return (
