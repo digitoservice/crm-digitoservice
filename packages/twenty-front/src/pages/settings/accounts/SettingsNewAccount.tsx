@@ -7,24 +7,24 @@ import { IconAt } from 'twenty-ui';
 
 export const SettingsNewAccount = () => {
   return (
-      <SubMenuTopBarContainer
-        Icon={IconAt}
-        title="Nova Conta"
-        links={[
-          {
-            children: 'Usuário',
-            href: getSettingsPagePath(SettingsPath.ProfilePage),
-          },
-          {
-            children: 'Contas',
-            href: getSettingsPagePath(SettingsPath.Accounts),
-          },
-          { children: `Nova` },
-        ]}
-      >
-        <SettingsPageContainer>
-          <SettingsNewAccountSection />
-        </SettingsPageContainer>
-      </SubMenuTopBarContainer>
+    <SubMenuTopBarContainer
+      Icon={IconAt}
+      title="Nova Conta"
+      links={[
+        {
+          children: 'Usuário',
+          href: getSettingsPagePath(SettingsPath.ProfilePage),
+        },
+        {
+          children: 'Contas',
+          href: getSettingsPagePath(SettingsPath.Accounts),
+        },
+        { children: `Nova` },
+      ]}
+    >
+      <SettingsPageContainer>
+        <SettingsNewAccountSection />
+      </SettingsPageContainer>
+    </SubMenuTopBarContainer>
   );
 };

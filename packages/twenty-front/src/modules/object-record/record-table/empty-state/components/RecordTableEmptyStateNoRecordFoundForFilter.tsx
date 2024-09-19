@@ -17,11 +17,11 @@ export const RecordTableEmptyStateNoRecordFoundForFilter = () => {
 
   const objectLabel = useObjectLabel(objectMetadataItem);
 
-  const buttonTitle = `Add a ${objectLabel}`;
+  const buttonTitle = `Adicionar um(a) ${objectLabel}`;
 
-  const title = `No ${objectLabel} found`;
+  const title = `Nenhum(a) ${objectLabel} encontrado(a)`;
 
-  const subTitle = 'No records matching the filter criteria were found.';
+  const subTitle = 'Nenhum registro correspondente aos critérios de filtro foi encontrado.';
 
   return (
     <RecordTableEmptyStateDisplay

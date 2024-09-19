@@ -28,7 +28,7 @@ export const SettingsDevelopers = () => {
           children: 'Workspace',
           href: getSettingsPagePath(SettingsPath.Workspace),
         },
-        { children: 'Developers' },
+        { children: 'Desenvolvedores' },
       ]}
     >
       <SettingsPageContainer>

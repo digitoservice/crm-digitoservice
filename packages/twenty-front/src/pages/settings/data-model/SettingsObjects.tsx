@@ -151,7 +151,7 @@ export const SettingsObjects = () => {
           href: getSettingsPagePath(SettingsPath.Workspace),
         },
         {
-          children: 'Objects',
+          children: 'Objetos',
         },
       ]}
     >

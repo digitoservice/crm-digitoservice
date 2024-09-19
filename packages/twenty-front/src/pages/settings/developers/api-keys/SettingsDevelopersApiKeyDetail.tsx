@@ -84,7 +84,7 @@ export const SettingsDevelopersApiKeyDetail = () => {
         navigate(developerPath);
       }
     } catch (err) {
-      enqueueSnackBar(`Error deleting api key: ${err}`, {
+      enqueueSnackBar(`Erro ao excluir a api key: ${err}`, {
         variant: SnackBarVariant.Error,
       });
     } finally {
