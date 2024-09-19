@@ -34,7 +34,7 @@ export const VariantFilterChip = ({
   const handleRemoveClick = () => {
     removeCombinedViewFilter(viewFilter.id);
     if (
-      viewFilter.definition.label === 'Deleted' &&
+      viewFilter.definition.label === 'Excluídos' &&
       viewFilter.operand === 'isNotEmpty'
     ) {
       toggleSoftDeleteFilterState(false);
