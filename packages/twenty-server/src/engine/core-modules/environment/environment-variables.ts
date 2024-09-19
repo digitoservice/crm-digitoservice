@@ -158,6 +158,10 @@ export class EnvironmentVariables {
   @IsOptional()
   FILE_TOKEN_EXPIRES_IN = '1d';
 
+  @IsDuration()
+  @IsOptional()
+  INVITATION_TOKEN_EXPIRES_IN = '30d';
+
   // Auth
   @IsUrl({ require_tld: false })
   @IsOptional()
