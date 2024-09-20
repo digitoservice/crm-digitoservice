@@ -174,13 +174,13 @@ export const SETTINGS_FIELD_TYPE_CONFIGS = {
     category: 'Basic',
   },
   [FieldMetadataType.RichText]: {
-    label: 'Rich Text',
+    label: 'Sistema',
     Icon: IllustrationIconSetting,
     exampleValue: { key: 'value' },
     category: 'Basic',
   },
   [FieldMetadataType.Actor]: {
-    label: 'Ator',
+    label: 'Sistema',
     Icon: IllustrationIconSetting,
     category: 'Basic',
   },
