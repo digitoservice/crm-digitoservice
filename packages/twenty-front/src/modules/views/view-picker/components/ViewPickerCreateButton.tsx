@@ -34,7 +34,7 @@ export const ViewPickerCreateButton = () => {
   if (viewPickerMode === 'edit') {
     return (
       <Button
-        title="Delete"
+        title="Excluir"
         onClick={deleteViewFromCurrentState}
         accent="danger"
         fullWidth
@@ -53,7 +53,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title="Go to Settings"
+        title="Ir para Configurações"
         onClick={navigateToSelectSettings}
         size="small"
         accent="blue"
@@ -69,7 +69,7 @@ export const ViewPickerCreateButton = () => {
   ) {
     return (
       <Button
-        title="Create"
+        title="Criar"
         onClick={handleCreateButtonClick}
         accent="blue"
         fullWidth

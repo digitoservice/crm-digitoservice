@@ -68,7 +68,7 @@ export const ViewPickerContentEditMode = () => {
   return (
     <>
       <DropdownMenuHeader StartIcon={IconChevronLeft} onClick={handleClose}>
-        Edit view
+        Editar visualização
       </DropdownMenuHeader>
       <DropdownMenuSeparator />
       <DropdownMenuItemsContainer>

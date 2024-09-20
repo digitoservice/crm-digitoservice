@@ -175,7 +175,7 @@ export const RecordIndexOptionsDropdownContent = ({
       {currentMenu === 'fields' && (
         <>
           <DropdownMenuHeader StartIcon={IconChevronLeft} onClick={resetMenu}>
-            Fields
+            Campos
           </DropdownMenuHeader>
           <ViewFieldsVisibilityDropdownSection
             title="Visíveis"
