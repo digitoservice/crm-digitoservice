@@ -1,3 +1,6 @@
+import { useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback } from 'react';
 import {
   Controller,
@@ -5,9 +8,6 @@ import {
   useFieldArray,
   useForm,
 } from 'react-hook-form';
-import { useTheme } from '@emotion/react';
-import styled from '@emotion/styled';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useRecoilValue } from 'recoil';
 import { Key } from 'ts-key-enum';
 import { IconCopy } from 'twenty-ui';
