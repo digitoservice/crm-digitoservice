@@ -27,6 +27,7 @@ const StyledIconAndButtonContainer = styled.button`
     background: ${({ theme }) => theme.background.transparent.light};
     border-radius: ${({ theme }) => theme.border.radius.sm};
   }
+  white-space: nowrap;
 `;
 
 const StyledContainer = styled.div`
