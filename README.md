@@ -1,7 +1,7 @@
 
 <br>
 <p align="center">
-  <a href="https://www.twenty.com">
+  <a href="https://digitoservice.com">
     <img src="./packages/twenty-front/public/images/integrations/twenty-logo.svg" width="100px" alt="CRM logo" />
   </a>
 </p>

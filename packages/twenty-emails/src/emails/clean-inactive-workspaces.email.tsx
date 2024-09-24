@@ -23,7 +23,7 @@ export const CleanInactiveWorkspaceEmail = ({
   return (
     <BaseEmail>
       <Title value="Workspace Inativo 😴" />
-      <HighlightedText value={`faltam ${daysLeft} ${dayOrDays}`} />
+      <HighlightedText value={`Faltam ${daysLeft} ${dayOrDays}`} />
       <MainText>
         {helloString},
         <br />

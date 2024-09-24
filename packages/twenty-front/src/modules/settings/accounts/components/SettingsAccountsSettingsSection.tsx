@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import { H2Title, IconCalendarEvent, IconMailCog } from 'twenty-ui';
 
-import { SettingsNavigationCard } from '@/settings/components/SettingsNavigationCard';
+import { SettingsCard } from '@/settings/components/SettingsCard';
 import { getSettingsPagePath } from '@/settings/utils/getSettingsPagePath';
 import { SettingsPath } from '@/types/SettingsPath';
 import { Section } from '@/ui/layout/section/components/Section';
 import { UndecoratedLink } from '@/ui/navigation/link/components/UndecoratedLink';
+import { useTheme } from '@emotion/react';
 
 const StyledCardsContainer = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ const StyledCardsContainer = styled.div`
 `;
 
 export const SettingsAccountsSettingsSection = () => {
+  const theme = useTheme();
   return (
     <Section>
       <H2Title
@@ -22,16 +24,30 @@ export const SettingsAccountsSettingsSection = () => {
       />
       <StyledCardsContainer>
         <UndecoratedLink to={getSettingsPagePath(SettingsPath.AccountsEmails)}>
-          <SettingsNavigationCard Icon={IconMailCog} title="Emails">
-            Defina a visibilidade dos emails, gerencie sua lista de bloqueio e mais.
-          </SettingsNavigationCard>
+          <SettingsCard
+            Icon={
+              <IconMailCog
+                size={theme.icon.size.lg}
+                stroke={theme.icon.stroke.sm}
+              />
+            }
+            title="Emails"
+            description="Defina a visibilidade do e-mail, gerencie sua blocklist e mais."
+          />
         </UndecoratedLink>
         <UndecoratedLink
           to={getSettingsPagePath(SettingsPath.AccountsCalendars)}
         >
-          <SettingsNavigationCard Icon={IconCalendarEvent} title="Calendário">
-            Configure e personalize suas preferências de calendário.
-          </SettingsNavigationCard>
+          <SettingsCard
+            Icon={
+              <IconCalendarEvent
+                size={theme.icon.size.lg}
+                stroke={theme.icon.stroke.sm}
+              />
+            }
+            title="Calendário"
+            description="Configure e personalize suas preferências de calendário."
+          />
         </UndecoratedLink>
       </StyledCardsContainer>
     </Section>

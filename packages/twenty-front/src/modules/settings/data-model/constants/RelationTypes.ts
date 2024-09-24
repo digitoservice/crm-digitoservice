@@ -1,12 +1,11 @@
 import {
   IconComponent,
-  IconRelationManyToOne,
-  IconRelationOneToMany,
-  IconRelationOneToOne,
+  IllustrationIconManyToMany,
+  IllustrationIconOneToMany,
+  IllustrationIconOneToOne,
 } from 'twenty-ui';
 
-import { RelationMetadataType } from '~/generated-metadata/graphql';
-
+import { RelationDefinitionType } from '~/generated-metadata/graphql';
 import OneToManySvg from '../assets/OneToMany.svg';
 import OneToOneSvg from '../assets/OneToOne.svg';
 import { RelationType } from '../types/RelationType';
@@ -20,19 +19,26 @@ export const RELATION_TYPES: Record<
     isImageFlipped?: boolean;
   }
 > = {
-  [RelationMetadataType.OneToMany]: {
+  [RelationDefinitionType.OneToMany]: {
     label: 'Tem muitos(as)',
-    Icon: IconRelationOneToMany,
+    Icon: IllustrationIconOneToMany,
     imageSrc: OneToManySvg,
   },
-  [RelationMetadataType.OneToOne]: {
+  [RelationDefinitionType.OneToOne]: {
     label: 'Tem um(a)',
-    Icon: IconRelationOneToOne,
+    Icon: IllustrationIconOneToOne,
     imageSrc: OneToOneSvg,
   },
-  MANY_TO_ONE: {
+  [RelationDefinitionType.ManyToOne]: {
     label: 'Pertence a um(a)',
-    Icon: IconRelationManyToOne,
+    Icon: IllustrationIconOneToMany,
+    imageSrc: OneToManySvg,
+    isImageFlipped: true,
+  },
+  // Not supported yet
+  [RelationDefinitionType.ManyToMany]: {
+    label: 'Pertence a muitos(as)',
+    Icon: IllustrationIconManyToMany,
     imageSrc: OneToManySvg,
     isImageFlipped: true,
   },

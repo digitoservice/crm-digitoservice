@@ -4,24 +4,24 @@ import { getSettingsPagePath } from '@/settings/utils/getSettingsPagePath';
 import { SettingsPath } from '@/types/SettingsPath';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/SubMenuTopBarContainer';
 import { Section } from '@/ui/layout/section/components/Section';
-import { Breadcrumb } from '@/ui/navigation/bread-crumb/components/Breadcrumb';
 import { IconCalendarEvent } from 'twenty-ui';
 
 export const SettingsAccountsCalendars = () => {
   return (
     <SubMenuTopBarContainer
       Icon={IconCalendarEvent}
-      title={
-        <Breadcrumb
-          links={[
-            {
-              children: 'Contas',
-              href: getSettingsPagePath(SettingsPath.Accounts),
-            },
-            { children: 'Calendários' },
-          ]}
-        />
-      }
+      title="Calendários"
+      links={[
+        {
+          children: 'Usuário',
+          href: getSettingsPagePath(SettingsPath.ProfilePage),
+        },
+        {
+          children: 'Contas',
+          href: getSettingsPagePath(SettingsPath.Accounts),
+        },
+        { children: 'Calendários' },
+      ]}
     >
       <SettingsPageContainer>
         <Section>

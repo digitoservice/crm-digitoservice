@@ -18,7 +18,7 @@ import { StripeService } from 'src/engine/core-modules/billing/stripe/stripe.ser
 import { FeatureFlagKey } from 'src/engine/core-modules/feature-flag/enums/feature-flag-key.enum';
 import { FeatureFlagEntity } from 'src/engine/core-modules/feature-flag/feature-flag.entity';
 import { Workspace } from 'src/engine/core-modules/workspace/workspace.entity';
-import { EnvironmentService } from 'src/engine/integrations/environment/environment.service';
+import { EnvironmentService } from 'src/engine/core-modules/environment/environment.service';
 
 @Injectable()
 export class BillingSubscriptionService {
@@ -137,6 +137,10 @@ export class BillingSubscriptionService {
   }
 
   async handleUnpaidInvoices(data: Stripe.SetupIntentSucceededEvent.Data) {
+    if (!data.object.customer) {
+      return;
+    }
+
     const billingSubscription = await this.getCurrentBillingSubscriptionOrThrow(
       { stripeCustomerId: data.object.customer as string },
     );

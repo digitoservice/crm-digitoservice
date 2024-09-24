@@ -12,6 +12,8 @@ import { SettingsAccountsBlocklistSection } from '@/settings/accounts/components
 import { SettingsAccountsConnectedAccountsListCard } from '@/settings/accounts/components/SettingsAccountsConnectedAccountsListCard';
 import { SettingsAccountsSettingsSection } from '@/settings/accounts/components/SettingsAccountsSettingsSection';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
+import { getSettingsPagePath } from '@/settings/utils/getSettingsPagePath';
+import { SettingsPath } from '@/types/SettingsPath';
 import { SubMenuTopBarContainer } from '@/ui/layout/page/SubMenuTopBarContainer';
 import { Section } from '@/ui/layout/section/components/Section';
 
@@ -33,7 +35,17 @@ export const SettingsAccounts = () => {
   });
 
   return (
-    <SubMenuTopBarContainer Icon={IconAt} title="Conta">
+    <SubMenuTopBarContainer
+      Icon={IconAt}
+      title="Conta"
+      links={[
+        {
+          children: 'Usuário',
+          href: getSettingsPagePath(SettingsPath.ProfilePage),
+        },
+        { children: 'Conta' },
+      ]}
+    >
       <SettingsPageContainer>
         {loading ? (
           <SettingsAccountLoader />
