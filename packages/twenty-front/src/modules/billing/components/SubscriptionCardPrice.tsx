@@ -25,7 +25,7 @@ export const SubscriptionCardPrice = ({
 }: SubscriptionCardPriceProps) => {
   return (
     <StyledSubscriptionCardPriceContainer>
-      <StyledPriceSpan>US${price}</StyledPriceSpan>
+      <StyledPriceSpan>R${price}</StyledPriceSpan>
       <StyledSeatSpan>/</StyledSeatSpan>
       <StyledSeatSpan>usuário</StyledSeatSpan>
     </StyledSubscriptionCardPriceContainer>

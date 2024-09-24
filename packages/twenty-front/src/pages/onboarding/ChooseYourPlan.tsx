@@ -115,7 +115,7 @@ export const ChooseYourPlan = () => {
       isNumber(price.unitAmount) &&
       price.unitAmount > 0
     ) {
-      return `Economize US$${(12 * monthPrice.unitAmount - price.unitAmount) / 100}`;
+      return `Economize R$${(12 * monthPrice.unitAmount - price.unitAmount) / 100}`;
     }
     return 'Cancele quando quiser';
   };
