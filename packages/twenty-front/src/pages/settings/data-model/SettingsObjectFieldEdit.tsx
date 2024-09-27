@@ -229,7 +229,6 @@ export const SettingsObjectFieldEdit = () => {
             <Section>
               <H2Title title="Valores" description="Os valores deste campo" />
               <SettingsDataModelFieldSettingsFormCard
-                disableCurrencyForm
                 fieldMetadataItem={fieldMetadataItem}
                 objectMetadataItem={objectMetadataItem}
               />

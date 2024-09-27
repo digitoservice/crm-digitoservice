@@ -3,44 +3,24 @@ import { ptBR } from 'date-fns/locale';
 import { DateTime } from 'luxon';
 import ReactDatePicker from 'react-datepicker';
 import { Key } from 'ts-key-enum';
-import {
-  IconCalendarX,
-  IconChevronLeft,
-  IconChevronRight,
-  OVERLAY_BACKGROUND,
-} from 'twenty-ui';
+import { IconCalendarX, OVERLAY_BACKGROUND } from 'twenty-ui';
 
-import { LightIconButton } from '@/ui/input/button/components/LightIconButton';
 import { DateTimeInput } from '@/ui/input/components/internal/date/components/DateTimeInput';
-import { Select } from '@/ui/input/components/Select';
 import { useDropdown } from '@/ui/layout/dropdown/hooks/useDropdown';
 import { MenuItemLeftContent } from '@/ui/navigation/menu-item/internals/components/MenuItemLeftContent';
 import { StyledHoverableMenuItemBase } from '@/ui/navigation/menu-item/internals/components/StyledMenuItemBase';
 import { isDefined } from '~/utils/isDefined';
 
+import { AbsoluteDatePickerHeader } from '@/ui/input/components/internal/date/components/AbsoluteDatePickerHeader';
+import { RelativeDatePickerHeader } from '@/ui/input/components/internal/date/components/RelativeDatePickerHeader';
+import { getHighlightedDates } from '@/ui/input/components/internal/date/utils/getHighlightedDates';
 import { UserContext } from '@/users/contexts/UserContext';
+import {
+  VariableDateViewFilterValueDirection,
+  VariableDateViewFilterValueUnit,
+} from '@/views/utils/view-filter-value/resolveDateViewFilterValue';
 import { useContext } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-
-const months = [
-  { label: 'Janeiro', value: 0 },
-  { label: 'Fevereiro', value: 1 },
-  { label: 'Março', value: 2 },
-  { label: 'Abril', value: 3 },
-  { label: 'Maio', value: 4 },
-  { label: 'Junho', value: 5 },
-  { label: 'Julho', value: 6 },
-  { label: 'Agosto', value: 7 },
-  { label: 'Setembro', value: 8 },
-  { label: 'Outubro', value: 9 },
-  { label: 'Novembro', value: 10 },
-  { label: 'Dezembro', value: 11 },
-];
-
-const years = Array.from(
-  { length: 200 },
-  (_, i) => new Date().getFullYear() + 5 - i,
-).map((year) => ({ label: year.toString(), value: year }));
 
 export const MONTH_AND_YEAR_DROPDOWN_ID = 'date-picker-month-and-year-dropdown';
 export const MONTH_AND_YEAR_DROPDOWN_MONTH_SELECT_ID =
@@ -48,7 +28,7 @@ export const MONTH_AND_YEAR_DROPDOWN_MONTH_SELECT_ID =
 export const MONTH_AND_YEAR_DROPDOWN_YEAR_SELECT_ID =
   'date-picker-month-and-year-dropdown-year-select';
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<{ calendarDisabled?: boolean }>`
   & .react-datepicker {
     border-color: ${({ theme }) => theme.border.color.light};
     background: transparent;
@@ -208,6 +188,10 @@ const StyledContainer = styled.div`
 
   & .react-datepicker__month {
     margin-top: 0;
+
+    pointer-events: ${({ calendarDisabled }) =>
+      calendarDisabled ? 'none' : 'auto'};
+    opacity: ${({ calendarDisabled }) => (calendarDisabled ? '0.5' : '1')};
   }
 
   & .react-datepicker__day {
@@ -289,21 +273,27 @@ const StyledButton = styled(MenuItemLeftContent)`
   justify-content: start;
 `;
 
-const StyledCustomDatePickerHeader = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  padding-left: ${({ theme }) => theme.spacing(2)};
-  padding-right: ${({ theme }) => theme.spacing(2)};
-  padding-top: ${({ theme }) => theme.spacing(2)};
-
-  gap: ${({ theme }) => theme.spacing(1)};
-`;
-
 type InternalDatePickerProps = {
+  isRelative?: boolean;
   date: Date | null;
+  relativeDate?: {
+    direction: VariableDateViewFilterValueDirection;
+    amount?: number;
+    unit: VariableDateViewFilterValueUnit;
+  };
+  highlightedDateRange?: {
+    start: Date;
+    end: Date;
+  };
   onMouseSelect?: (date: Date | null) => void;
   onChange?: (date: Date | null) => void;
+  onRelativeDateChange?: (
+    relativeDate: {
+      direction: VariableDateViewFilterValueDirection;
+      amount?: number;
+      unit: VariableDateViewFilterValueUnit;
+    } | null,
+  ) => void;
   clearable?: boolean;
   isDateTimeInput?: boolean;
   onEnter?: (date: Date | null) => void;
@@ -322,6 +312,10 @@ export const InternalDatePicker = ({
   isDateTimeInput,
   keyboardEventsDisabled,
   onClear,
+  isRelative,
+  relativeDate,
+  onRelativeDateChange,
+  highlightedDateRange,
 }: InternalDatePickerProps) => {
   const internalDate = date ?? new Date();
 
@@ -470,16 +464,21 @@ export const InternalDatePicker = ({
 
   const dateToUse = isDateTimeInput ? endOfDayInLocalTimezone : dateWithoutTime;
 
+  const highlightedDates = getHighlightedDates(highlightedDateRange);
+
+  const selectedDates = isRelative ? highlightedDates : [dateToUse];
+
   return (
-    <StyledContainer onKeyDown={handleKeyDown}>
+    <StyledContainer onKeyDown={handleKeyDown} calendarDisabled={isRelative}>
       <div className={clearable ? 'clearable ' : ''}>
         <ReactDatePicker
           locale={ptBR}
           open={true}
           selected={dateToUse}
+          selectedDates={selectedDates}
           openToDate={isDefined(dateToUse) ? dateToUse : undefined}
           disabledKeyboardNavigation
-          onChange={handleDateChange}
+          onChange={handleDateChange as any}
           customInput={
             <DateTimeInput
               date={internalDate}
@@ -491,47 +490,31 @@ export const InternalDatePicker = ({
           renderCustomHeader={({
             prevMonthButtonDisabled,
             nextMonthButtonDisabled,
-          }) => (
-            <>
-              <DateTimeInput
-                date={internalDate}
-                isDateTimeInput={isDateTimeInput}
-                onChange={onChange}
-                userTimezone={timeZone}
+          }) =>
+            isRelative ? (
+              <RelativeDatePickerHeader
+                direction={relativeDate?.direction ?? 'PAST'}
+                amount={relativeDate?.amount}
+                unit={relativeDate?.unit ?? 'DAY'}
+                onChange={onRelativeDateChange}
               />
-              <StyledCustomDatePickerHeader>
-                <Select
-                  dropdownId={MONTH_AND_YEAR_DROPDOWN_MONTH_SELECT_ID}
-                  options={months}
-                  disableBlur
-                  onChange={handleChangeMonth}
-                  value={endOfDayInLocalTimezone.getMonth()}
-                  fullWidth
-                />
-                <Select
-                  dropdownId={MONTH_AND_YEAR_DROPDOWN_YEAR_SELECT_ID}
-                  onChange={handleChangeYear}
-                  value={endOfDayInLocalTimezone.getFullYear()}
-                  options={years}
-                  disableBlur
-                  fullWidth
-                />
-                <LightIconButton
-                  Icon={IconChevronLeft}
-                  onClick={handleSubtractMonth}
-                  size="medium"
-                  disabled={prevMonthButtonDisabled}
-                />
-                <LightIconButton
-                  Icon={IconChevronRight}
-                  onClick={handleAddMonth}
-                  size="medium"
-                  disabled={nextMonthButtonDisabled}
-                />
-              </StyledCustomDatePickerHeader>
-            </>
-          )}
+            ) : (
+              <AbsoluteDatePickerHeader
+                date={internalDate}
+                onChange={onChange}
+                onChangeMonth={handleChangeMonth}
+                onChangeYear={handleChangeYear}
+                onAddMonth={handleAddMonth}
+                onSubtractMonth={handleSubtractMonth}
+                prevMonthButtonDisabled={prevMonthButtonDisabled}
+                nextMonthButtonDisabled={nextMonthButtonDisabled}
+                isDateTimeInput={isDateTimeInput}
+                timeZone={timeZone}
+              />
+            )
+          }
           onSelect={handleDateSelect}
+          selectsMultiple={isRelative}
         />
       </div>
       {clearable && (
