@@ -6,8 +6,8 @@ type RelativeDateUnit = {
 };
 
 export const RELATIVE_DATE_UNITS_SELECT_OPTIONS: RelativeDateUnit[] = [
-  { value: 'DAY', label: 'Day' },
-  { value: 'WEEK', label: 'Week' },
-  { value: 'MONTH', label: 'Month' },
-  { value: 'YEAR', label: 'Year' },
+  { value: 'DAY', label: 'Dia' },
+  { value: 'WEEK', label: 'Semana' },
+  { value: 'MONTH', label: 'Mês' },
+  { value: 'YEAR', label: 'Ano' },
 ];

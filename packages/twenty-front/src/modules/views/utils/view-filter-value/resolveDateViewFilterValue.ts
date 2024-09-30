@@ -54,7 +54,7 @@ export const variableDateViewFilterValuePartsSchema = z
     unit: variableDateViewFilterValueUnitSchema,
   })
   .refine((data) => !(data.amount === undefined && data.direction !== 'THIS'), {
-    message: "Amount cannot be 'undefined' unless direction is 'THIS'",
+    message: "O valor não pode ser 'undefined', a menos que a direção seja 'ESTE'",
   });
 
 const variableDateViewFilterValueSchema = z.string().transform((value) => {
@@ -137,14 +137,14 @@ const resolveVariableDateViewFilterValueFromRelativeDate = (relativeDate: {
 
   switch (direction) {
     case 'NEXT':
-      if (amount === undefined) throw new Error('Amount is required');
+      if (amount === undefined) throw new Error('O valor é obrigatório');
       return {
         start: now,
         end: addUnit(now, amount, unit),
         ...relativeDate,
       };
     case 'PAST':
-      if (amount === undefined) throw new Error('Amount is required');
+      if (amount === undefined) throw new Error('O valor é obrigatório');
       return {
         start: subUnit(now, amount, unit),
         end: now,

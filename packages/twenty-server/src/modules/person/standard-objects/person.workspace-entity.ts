@@ -116,8 +116,8 @@ export class PersonWorkspaceEntity extends BaseWorkspaceEntity {
   @WorkspaceField({
     standardId: PERSON_STANDARD_FIELD_IDS.phones,
     type: FieldMetadataType.PHONES,
-    label: 'Phones',
-    description: 'Contact’s phone numbers',
+    label: 'Telefones',
+    description: 'Números de telefone do contato',
     icon: 'IconPhone',
   })
   phones: PhonesMetadata;

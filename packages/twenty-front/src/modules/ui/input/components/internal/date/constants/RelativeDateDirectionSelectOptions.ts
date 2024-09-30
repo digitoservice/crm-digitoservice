@@ -7,7 +7,7 @@ type RelativeDateDirectionOption = {
 
 export const RELATIVE_DATE_DIRECTION_SELECT_OPTIONS: RelativeDateDirectionOption[] =
   [
-    { value: 'PAST', label: 'Past' },
-    { value: 'THIS', label: 'This' },
-    { value: 'NEXT', label: 'Next' },
+    { value: 'PAST', label: 'Passado' },
+    { value: 'THIS', label: 'Este' },
+    { value: 'NEXT', label: 'Próximo' },
   ];

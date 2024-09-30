@@ -44,15 +44,15 @@ export const SettingsDataModelFieldDateForm = ({
         defaultValue={initialDisplayAsRelativeDateValue}
         render={({ field: { onChange, value } }) => (
           <>
-            <StyledFormCardTitle>Options</StyledFormCardTitle>
+            <StyledFormCardTitle>Opções</StyledFormCardTitle>
             <SettingsDataModelFieldToggle
-              label="Display as relative date"
+              label="Exibir como data relativa"
               Icon={IconClockShare}
               onChange={onChange}
               value={value}
               disabled={disabled}
               tooltip={
-                'Show dates in a human-friendly format. Example: "13 mins ago" instead of "Jul 30, 2024 7:11pm"'
+                'Mostrar datas em um formato mais amigável. Exemplo: "há 13 minutos" ao invés de "30 de jul, 2024 19:11"'
               }
             />
           </>

@@ -1,5 +1,5 @@
 const getMonthName = (index: number): string =>
-  new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
+  new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(
     new Date(0, index, 1),
   );
 
