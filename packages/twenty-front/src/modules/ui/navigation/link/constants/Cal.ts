@@ -1,1 +1,1 @@
-export const CAL_LINK = 'https://digitoservice.com/talk-to-us';
+export const CAL_LINK = 'https://c.digitoservice.com/talk-to-us';

@@ -17,7 +17,7 @@ export const SupportDropdown = () => {
   };
 
   const handleUserGuide = () => {
-    window.open('https://digitoservice.com/docs/user-guide', '_blank');
+    window.open('https://c.digitoservice.com/docs/user-guide', '_blank');
     closeDropdown();
   };
 

@@ -48,7 +48,7 @@ export const baseSchema = (
     ],
     externalDocs: {
       description: 'Find out more about **CRM - Digito Service**',
-      url: 'https://digitoservice.com',
+      url: 'https://c.digitoservice.com',
     },
     paths: { [`/open-api/${schemaName}`]: computeOpenApiPath(serverUrl) },
   };

@@ -10,7 +10,7 @@ export const SettingsReadDocumentationButton = () => {
       accent="default"
       size="small"
       Icon={IconBook2}
-      to={'https://digitoservice.com/docs/developers'}
+      to={'https://c.digitoservice.com/docs/developers'}
       target="_blank"
     ></Button>
   );

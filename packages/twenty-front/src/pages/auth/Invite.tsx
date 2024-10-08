@@ -94,7 +94,7 @@ export const Invite = () => {
           <FooterNote>
             Ao usar os serviços da Digito Service, você concorda com os{' '}
             <a
-              href="https://digitoservice.com/legal/terms"
+              href="https://c.digitoservice.com/legal/terms"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,7 +102,7 @@ export const Invite = () => {
             </a>{' '}
             e{' '}
             <a
-              href="https://digitoservice.com/legal/privacy"
+              href="https://c.digitoservice.com/legal/privacy"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -16,17 +16,17 @@ export const WhatIsTwenty = () => {
       <Row>
         <Column>
           <ShadowText>
-            <Link href="https://digitoservice.com/" value="Website" />
+            <Link href="https://c.digitoservice.com/" value="Website" />
           </ShadowText>
         </Column>
         <Column>
           <ShadowText>
-            <Link href="https://digitoservice.com/docs/user-guide/" value="Guia do usuário" />
+            <Link href="https://c.digitoservice.com/docs/user-guide/" value="Guia do usuário" />
           </ShadowText>
         </Column>
         <Column>
           <ShadowText>
-            <Link href="https://digitoservice.com/docs/developers/" value="Desenvolvedores" />
+            <Link href="https://c.digitoservice.com/docs/developers/" value="Desenvolvedores" />
           </ShadowText>
         </Column>
       </Row>

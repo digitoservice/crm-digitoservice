@@ -1,1 +1,1 @@
-export const GITHUB_LINK = 'https://digitoservice.com';
+export const GITHUB_LINK = 'https://c.digitoservice.com';
