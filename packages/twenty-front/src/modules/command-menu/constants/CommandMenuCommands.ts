@@ -8,8 +8,8 @@ import {
 
 import { Command, CommandType } from '../types/Command';
 
-export const COMMAND_MENU_COMMANDS: Command[] = [
-  {
+export const COMMAND_MENU_COMMANDS: { [key: string]: Command } = {
+  people: {
     id: 'go-to-people',
     to: '/objects/people',
     label: 'Ir para Pessoas',
@@ -18,7 +18,7 @@ export const COMMAND_MENU_COMMANDS: Command[] = [
     secondHotKey: 'P',
     Icon: IconUser,
   },
-  {
+  companies: {
     id: 'go-to-companies',
     to: '/objects/companies',
     label: 'Ir para Empresas',
@@ -27,7 +27,7 @@ export const COMMAND_MENU_COMMANDS: Command[] = [
     secondHotKey: 'C',
     Icon: IconBuildingSkyscraper,
   },
-  {
+  opportunities: {
     id: 'go-to-activities',
     to: '/objects/opportunities',
     label: 'Ir para Oportunidades',
@@ -36,7 +36,7 @@ export const COMMAND_MENU_COMMANDS: Command[] = [
     secondHotKey: 'O',
     Icon: IconTargetArrow,
   },
-  {
+  settings: {
     id: 'go-to-settings',
     to: '/settings/profile',
     label: 'Ir para Configurações',
@@ -45,7 +45,7 @@ export const COMMAND_MENU_COMMANDS: Command[] = [
     secondHotKey: 'S',
     Icon: IconSettings,
   },
-  {
+  tasks: {
     id: 'go-to-tasks',
     to: '/objects/tasks',
     label: 'Ir para Tarefas',
@@ -54,4 +54,4 @@ export const COMMAND_MENU_COMMANDS: Command[] = [
     secondHotKey: 'T',
     Icon: IconCheckbox,
   },
-];
+};

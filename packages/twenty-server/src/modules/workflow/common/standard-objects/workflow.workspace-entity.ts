@@ -84,6 +84,7 @@ export class WorkflowWorkspaceEntity extends BaseWorkspaceEntity {
     type: FieldMetadataType.MULTI_SELECT,
     label: 'Status',
     description: 'Os status atuais das versões do workflow',
+    icon: 'IconStatusChange',
     options: WorkflowStatusOptions,
   })
   @WorkspaceIsNullable()
