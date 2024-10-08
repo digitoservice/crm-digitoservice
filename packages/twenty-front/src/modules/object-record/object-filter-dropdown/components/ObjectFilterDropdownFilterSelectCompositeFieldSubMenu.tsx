@@ -61,7 +61,7 @@ export const ObjectFilterDropdownFilterSelectCompositeFieldSubMenu = ({
       <StyledInput
         value={searchText}
         autoFocus
-        placeholder="Search fields"
+        placeholder="Buscar campos"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           setSearchText(event.target.value)
         }
@@ -74,7 +74,7 @@ export const ObjectFilterDropdownFilterSelectCompositeFieldSubMenu = ({
             handleSelectFilter(firstLevelFieldDefinition);
           }}
           LeftIcon={IconApps}
-          text={`Any ${getFilterableFieldTypeLabel(fieldType)} field`}
+          text={`Qualquer campo de ${getFilterableFieldTypeLabel(fieldType)}`}
         />
         {options.map((subFieldName, index) => (
           <MenuItem

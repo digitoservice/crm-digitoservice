@@ -5,12 +5,12 @@ export const getSubMenuOptions = (subMenu: FilterableFieldType | null) => {
     case 'ACTOR':
       return [
         {
-          name: 'Creation Source',
+          name: 'Fonte de Criação',
           icon: 'IconPlug',
           type: 'SOURCE',
         },
         {
-          name: 'Creator Name',
+          name: 'Nome do Criador',
           icon: 'IconId',
           type: 'ACTOR',
         },

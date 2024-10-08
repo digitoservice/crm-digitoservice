@@ -15,14 +15,14 @@ export const getActorSourceMultiSelectOptions = (
   return [
     {
       id: 'MANUAL',
-      name: 'User',
+      name: 'Usuário',
       isSelected: selectedSourceNames.includes('MANUAL'),
       AvatarIcon: IconUserCircle,
       isIconInverted: true,
     },
     {
       id: 'IMPORT',
-      name: 'Import',
+      name: 'Importação',
       isSelected: selectedSourceNames.includes('IMPORT'),
       AvatarIcon: IconCsv,
       isIconInverted: true,
@@ -42,7 +42,7 @@ export const getActorSourceMultiSelectOptions = (
     },
     {
       id: 'CALENDAR',
-      name: 'Calendar',
+      name: 'Calendário',
       isSelected: selectedSourceNames.includes('CALENDAR'),
       AvatarIcon: IconGoogleCalendar,
     },
@@ -55,7 +55,7 @@ export const getActorSourceMultiSelectOptions = (
     },
     {
       id: 'SYSTEM',
-      name: 'System',
+      name: 'Sistema',
       isSelected: selectedSourceNames.includes('SYSTEM'),
       AvatarIcon: IconRobot,
       isIconInverted: true,

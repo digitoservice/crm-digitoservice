@@ -223,7 +223,7 @@ export const ShowPageRightContainer = ({
     },
     {
       id: 'workflowVersion',
-      title: 'Workflow Version',
+      title: 'Versão do Workflow',
       Icon: IconSettings,
       hide: !isWorkflowVersion,
     },
@@ -325,7 +325,7 @@ export const ShowPageRightContainer = ({
             Icon={IconTrash}
             onClick={handleDelete}
             disabled={isDeleting}
-            title={isDeleting ? 'Deleting...' : 'Delete'}
+            title={isDeleting ? 'Excluindo...' : 'Excluir'}
           ></Button>
         </StyledButtonContainer>
       )}

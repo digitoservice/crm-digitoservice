@@ -81,7 +81,7 @@ export const useCommandMenu = () => {
             ({
               id: item.id,
               to: `/objects/${item.namePlural}`,
-              label: `Go to ${item.labelPlural}`,
+              label: `Ir para ${item.labelPlural}`,
               type: CommandType.Navigate,
               firstHotKey: 'G',
               secondHotKey: item.labelPlural[0],

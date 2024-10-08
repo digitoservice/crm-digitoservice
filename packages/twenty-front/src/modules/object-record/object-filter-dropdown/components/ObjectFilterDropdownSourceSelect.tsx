@@ -87,7 +87,7 @@ export const ObjectFilterDropdownSourceSelect = ({
 
     const filterDisplayValue =
       selectedItemNames.length > MAX_ITEMS_TO_DISPLAY
-        ? `${selectedItemNames.length} source types`
+        ? `${selectedItemNames.length} tipos de fontes`
         : selectedItemNames.join(', ');
 
     if (

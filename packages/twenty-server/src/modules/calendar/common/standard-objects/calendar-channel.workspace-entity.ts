@@ -273,8 +273,8 @@ export class CalendarChannelWorkspaceEntity extends BaseWorkspaceEntity {
   @WorkspaceField({
     standardId: CALENDAR_CHANNEL_STANDARD_FIELD_IDS.syncedAt,
     type: FieldMetadataType.DATE_TIME,
-    label: 'Last sync date',
-    description: 'Last sync date',
+    label: 'Data da Última Sincronização',
+    description: 'Data da Última Sincronização',
     icon: 'IconHistory',
   })
   @WorkspaceIsNullable()

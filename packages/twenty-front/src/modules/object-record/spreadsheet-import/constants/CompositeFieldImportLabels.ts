@@ -36,8 +36,8 @@ export const COMPOSITE_FIELD_IMPORT_LABELS = {
     primaryEmailLabel: 'Email',
   } satisfies Partial<CompositeFieldLabels<FieldEmailsValue>>,
   [FieldMetadataType.Phones]: {
-    primaryPhoneCountryCodeLabel: 'Phone country code',
-    primaryPhoneNumberLabel: 'Phone number',
+    primaryPhoneCountryCodeLabel: 'Código do país do telefone',
+    primaryPhoneNumberLabel: 'Número de telefone',
   } satisfies Partial<CompositeFieldLabels<FieldPhonesValue>>,
   [FieldMetadataType.Actor]: {
     sourceLabel: 'Fonte',

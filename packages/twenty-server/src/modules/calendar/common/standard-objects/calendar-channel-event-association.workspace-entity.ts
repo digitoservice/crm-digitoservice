@@ -39,8 +39,8 @@ export class CalendarChannelEventAssociationWorkspaceEntity extends BaseWorkspac
     standardId:
       CALENDAR_CHANNEL_EVENT_ASSOCIATION_STANDARD_FIELD_IDS.recurringEventExternalId,
     type: FieldMetadataType.TEXT,
-    label: 'Recurring Event ID',
-    description: 'Recurring Event ID',
+    label: 'ID do Evento Recorrente',
+    description: 'ID do Evento Recorrente',
     icon: 'IconHistory',
   })
   recurringEventExternalId: string;
