@@ -118,7 +118,7 @@ export class WorkflowWorkspaceEntity extends BaseWorkspaceEntity {
     standardId: WORKFLOW_STANDARD_FIELD_IDS.runs,
     type: RelationMetadataType.ONE_TO_MANY,
     label: 'Execuções',
-    description: 'Execuções de workflow vinculadas ao workflow.',
+    description: 'Execuções do workflow vinculadas ao workflow.',
     icon: 'IconRun',
     inverseSideTarget: () => WorkflowRunWorkspaceEntity,
     onDelete: RelationOnDeleteAction.CASCADE,

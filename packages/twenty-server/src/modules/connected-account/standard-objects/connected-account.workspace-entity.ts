@@ -102,8 +102,8 @@ export class ConnectedAccountWorkspaceEntity extends BaseWorkspaceEntity {
   @WorkspaceField({
     standardId: CONNECTED_ACCOUNT_STANDARD_FIELD_IDS.scopes,
     type: FieldMetadataType.ARRAY,
-    label: 'Scopes',
-    description: 'Scopes',
+    label: 'Escopos',
+    description: 'Escopos',
     icon: 'IconSettings',
   })
   @WorkspaceIsNullable()

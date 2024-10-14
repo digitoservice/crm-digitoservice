@@ -24,7 +24,7 @@ export const SettingsDeveloppersWebhookUsageGraph = () => {
     <>
       {webhookGraphData.length ? (
         <Section>
-          <H2Title title="Statistics" />
+          <H2Title title="Estatísticas" />
           <StyledGraphContainer>
             <ResponsiveLine
               data={webhookGraphData}

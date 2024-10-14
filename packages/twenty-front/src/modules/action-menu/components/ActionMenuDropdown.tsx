@@ -56,7 +56,7 @@ export const ActionMenuDropdown = () => {
 
   //TODO: remove this
   const width = actionMenuEntries.some(
-    (actionMenuEntry) => actionMenuEntry.label === 'Remove from favorites',
+    (actionMenuEntry) => actionMenuEntry.label === 'Remover dos favoritos',
   )
     ? 200
     : undefined;

@@ -63,10 +63,10 @@ export const SettingsObjectNewFieldSelect = () => {
         {...formMethods}
       >
         <SubMenuTopBarContainer
-          title="1. Select a field type"
+          title="1. Selecione um tipo de campo"
           links={[
             { children: 'Workspace', href: '/settings/workspace' },
-            { children: 'Objects', href: '/settings/objects' },
+            { children: 'Objetos', href: '/settings/objects' },
             {
               children: activeObjectMetadataItem.labelPlural,
               href: `/settings/objects/${objectSlug}`,

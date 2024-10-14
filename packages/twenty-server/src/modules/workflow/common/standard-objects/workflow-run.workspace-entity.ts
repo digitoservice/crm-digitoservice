@@ -46,9 +46,9 @@ export type WorkflowRunOutput = {
 @WorkspaceEntity({
   standardId: STANDARD_OBJECT_IDS.workflowRun,
   namePlural: 'workflowRuns',
-  labelSingular: 'Execução de Workflow',
-  labelPlural: 'Execuções de Workflow',
-  description: 'Uma execução de workflow',
+  labelSingular: 'Execução do Workflow',
+  labelPlural: 'Execuções do Workflow',
+  description: 'Uma execução do workflow',
   labelIdentifierStandardId: WORKFLOW_RUN_STANDARD_FIELD_IDS.name,
   icon: 'IconSettingsAutomation',
 })
@@ -60,7 +60,7 @@ export class WorkflowRunWorkspaceEntity extends BaseWorkspaceEntity {
     standardId: WORKFLOW_RUN_STANDARD_FIELD_IDS.name,
     type: FieldMetadataType.TEXT,
     label: 'Nome',
-    description: 'Nome da execução de workflow',
+    description: 'Nome da execução do workflow',
     icon: 'IconSettingsAutomation',
   })
   name: string;
@@ -138,7 +138,7 @@ export class WorkflowRunWorkspaceEntity extends BaseWorkspaceEntity {
     standardId: WORKFLOW_RUN_STANDARD_FIELD_IDS.output,
     type: FieldMetadataType.RAW_JSON,
     label: 'Saída',
-    description: 'Objeto JSON para fornecer a saída da execução de workflow',
+    description: 'Objeto JSON para fornecer a saída da execução do workflow',
     icon: 'IconText',
   })
   @WorkspaceIsNullable()
@@ -148,7 +148,7 @@ export class WorkflowRunWorkspaceEntity extends BaseWorkspaceEntity {
     standardId: WORKFLOW_RUN_STANDARD_FIELD_IDS.position,
     type: FieldMetadataType.POSITION,
     label: 'Posição',
-    description: 'Posição da execução de workflow',
+    description: 'Posição da execução do workflow',
     icon: 'IconHierarchy2',
   })
   @WorkspaceIsSystem()

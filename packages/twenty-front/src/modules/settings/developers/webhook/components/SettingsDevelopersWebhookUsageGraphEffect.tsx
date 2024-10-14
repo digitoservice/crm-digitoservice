@@ -34,7 +34,7 @@ export const SettingsDevelopersWebhookUsageGraphEffect = ({
         const result = await response.json();
 
         if (!response.ok) {
-          enqueueSnackBar('Something went wrong while fetching webhook usage', {
+          enqueueSnackBar('Ocorreu um erro ao buscar o uso do webhook', {
             variant: SnackBarVariant.Error,
           });
           return;
@@ -90,7 +90,7 @@ export const SettingsDevelopersWebhookUsageGraphEffect = ({
           );
         setWebhookGraphData(graphInput);
       } catch (error) {
-        enqueueSnackBar('Something went wrong while fetching webhook usage', {
+        enqueueSnackBar('Ocorreu um erro ao buscar o uso do webhook', {
           variant: SnackBarVariant.Error,
         });
       }

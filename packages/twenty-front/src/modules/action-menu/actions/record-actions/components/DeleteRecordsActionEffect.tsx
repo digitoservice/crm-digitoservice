@@ -51,7 +51,7 @@ export const DeleteRecordsActionEffect = ({
     if (canDelete) {
       addActionMenuEntry({
         key: 'delete',
-        label: 'Delete',
+        label: 'Excluir',
         position,
         Icon: IconTrash,
         accent: 'danger',
@@ -62,17 +62,17 @@ export const DeleteRecordsActionEffect = ({
           <ConfirmationModal
             isOpen={isDeleteRecordsModalOpen}
             setIsOpen={setIsDeleteRecordsModalOpen}
-            title={`Delete ${numberOfSelectedRecords} ${
-              numberOfSelectedRecords === 1 ? `record` : 'records'
+            title={`Excluir ${numberOfSelectedRecords} ${
+              numberOfSelectedRecords === 1 ? `registro` : 'registros'
             }`}
-            subtitle={`Are you sure you want to delete ${
-              numberOfSelectedRecords === 1 ? 'this record' : 'these records'
+            subtitle={`Você tem certeza de que deseja excluir ${
+              numberOfSelectedRecords === 1 ? 'este registro' : 'estes registros'
             }? ${
-              numberOfSelectedRecords === 1 ? 'It' : 'They'
-            } can be recovered from the Options menu.`}
+              numberOfSelectedRecords === 1 ? 'Ele' : 'Eles'
+            } podem ser recuperados pelo menu Opções.`}
             onConfirmClick={() => handleDeleteClick()}
-            deleteButtonText={`Delete ${
-              numberOfSelectedRecords > 1 ? 'Records' : 'Record'
+            deleteButtonText={`Excluir ${
+              numberOfSelectedRecords > 1 ? 'Registros' : 'Registro'
             }`}
           />
         ),

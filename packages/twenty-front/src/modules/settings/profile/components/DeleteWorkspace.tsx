@@ -38,7 +38,7 @@ export const DeleteWorkspace = () => {
         confirmationValue={userEmail}
         isOpen={isDeleteWorkSpaceModalOpen}
         setIsOpen={setIsDeleteWorkSpaceModalOpen}
-        title="Exclusão de Workspace"
+        title="Exclusão do Workspace"
         subtitle={
           <>
             Esta ação não pode ser desfeita. Isso excluirá permanentemente seu

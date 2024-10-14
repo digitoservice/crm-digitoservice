@@ -98,8 +98,8 @@ export const SettingsObjectDetailPageContent = ({
         {isAdvancedModeEnabled && isUniqueIndexesEnabled && (
           <Section>
             <H2Title
-              title="Indexes"
-              description={`Advanced feature to improve the performance of queries and to enforce unicity constraints.`}
+              title="Índices"
+              description={`Recurso avançado para melhorar o desempenho das consultas e para impor restrições de unicidade.`}
             />
             <SettingsObjectIndexTable objectMetadataItem={objectMetadataItem} />
           </Section>

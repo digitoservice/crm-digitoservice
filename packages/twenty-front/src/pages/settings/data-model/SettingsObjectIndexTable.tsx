@@ -25,7 +25,7 @@ const SETTINGS_OBJECT_DETAIL_TABLE_METADATA_STANDARD: TableMetadata<SettingsObje
     tableId: 'settingsObjectIndexs',
     fields: [
       {
-        fieldLabel: 'Fields',
+        fieldLabel: 'Campos',
         fieldName: 'indexFields',
         fieldType: 'string',
         align: 'left',
@@ -38,7 +38,7 @@ const SETTINGS_OBJECT_DETAIL_TABLE_METADATA_STANDARD: TableMetadata<SettingsObje
         align: 'left',
       },
       {
-        fieldLabel: 'Type',
+        fieldLabel: 'Tipo',
         fieldName: 'indexType',
         fieldType: 'string',
         align: 'right',
@@ -112,7 +112,7 @@ export const SettingsObjectIndexTable = ({
     <>
       <StyledSearchInput
         LeftIcon={IconSearch}
-        placeholder="Search an index..."
+        placeholder="Pesquisar um índice..."
         value={searchTerm}
         onChange={setSearchTerm}
       />
