@@ -43,13 +43,9 @@ type SettingsNavigationItem = {
   label: string;
   path: SettingsPath;
   Icon: IconComponent;
-  matchSubPages?: boolean;
   indentationLevel?: NavigationDrawerItemIndentationLevel;
+  matchSubPages?: boolean;
 };
-
-const StyledNavigationDrawerSection = styled(NavigationDrawerSection)`
-  margin-bottom: ${({ theme }) => theme.spacing(3)};
-`;
 
 const StyledIconContainer = styled.div`
   border-right: 1px solid ${MAIN_COLORS.yellow};
@@ -94,14 +90,12 @@ export const SettingsNavigationDrawerItems = () => {
       label: 'Emails',
       path: SettingsPath.AccountsEmails,
       Icon: IconMail,
-      matchSubPages: true,
       indentationLevel: 2,
     },
     {
       label: 'Calendários',
       path: SettingsPath.AccountsCalendars,
       Icon: IconCalendarEvent,
-      matchSubPages: true,
       indentationLevel: 2,
     },
   ];
@@ -113,7 +107,7 @@ export const SettingsNavigationDrawerItems = () => {
     return matchPath(
       {
         path: pathName,
-        end: !accountSubSetting.matchSubPages,
+        end: accountSubSetting.matchSubPages === false,
       },
       currentPathName,
     );
@@ -121,7 +115,7 @@ export const SettingsNavigationDrawerItems = () => {
 
   return (
     <>
-      <StyledNavigationDrawerSection>
+      <NavigationDrawerSection>
         <NavigationDrawerSectionTitle label="Usuário" />
         <SettingsNavigationDrawerItem
           label="Perfil"
@@ -138,6 +132,7 @@ export const SettingsNavigationDrawerItems = () => {
             label="Contas"
             path={SettingsPath.Accounts}
             Icon={IconAt}
+            matchSubPages={false}
           />
           {accountSubSettings.map((navigationItem, index) => (
             <SettingsNavigationDrawerItem
@@ -154,8 +149,8 @@ export const SettingsNavigationDrawerItems = () => {
             />
           ))}
         </NavigationDrawerItemGroup>
-      </StyledNavigationDrawerSection>
-      <StyledNavigationDrawerSection>
+      </NavigationDrawerSection>
+      <NavigationDrawerSection>
         <NavigationDrawerSectionTitle label="Workspace" />
         <SettingsNavigationDrawerItem
           label="Geral"
@@ -178,7 +173,6 @@ export const SettingsNavigationDrawerItems = () => {
           label="Modelo de Dados"
           path={SettingsPath.Objects}
           Icon={IconHierarchy2}
-          matchSubPages
         />
         <SettingsNavigationDrawerItem
           label="Integrações"
@@ -192,7 +186,7 @@ export const SettingsNavigationDrawerItems = () => {
             Icon={IconCode}
           />
         )}
-      </StyledNavigationDrawerSection>
+      </NavigationDrawerSection>
       <AnimatePresence>
         {isAdvancedModeEnabled && (
           <motion.div
@@ -206,7 +200,7 @@ export const SettingsNavigationDrawerItems = () => {
               <StyledIconContainer>
                 <StyledIconTool size={12} color={MAIN_COLORS.yellow} />
               </StyledIconContainer>
-              <StyledNavigationDrawerSection>
+              <NavigationDrawerSection>
                 <NavigationDrawerSectionTitle label="Desenvolvedores" />
                 <SettingsNavigationDrawerItem
                   label="API & Webhooks"
@@ -220,12 +214,12 @@ export const SettingsNavigationDrawerItems = () => {
                     Icon={IconFunction}
                   />
                 )}
-              </StyledNavigationDrawerSection>
+              </NavigationDrawerSection>
             </StyledDeveloperSection>
           </motion.div>
         )}
       </AnimatePresence>
-      <StyledNavigationDrawerSection>
+      <NavigationDrawerSection>
         <NavigationDrawerSectionTitle label="Outros" />
         {/* <SettingsNavigationDrawerItem
           label="Releases"
@@ -237,7 +231,7 @@ export const SettingsNavigationDrawerItems = () => {
           onClick={signOut}
           Icon={IconDoorEnter}
         />
-      </StyledNavigationDrawerSection>
+      </NavigationDrawerSection>
     </>
   );
 };

@@ -16,6 +16,7 @@ import { WorkspaceRelation } from 'src/engine/twenty-orm/decorators/workspace-re
 import { WORKFLOW_STANDARD_FIELD_IDS } from 'src/engine/workspace-manager/workspace-sync-metadata/constants/standard-field-ids';
 import { STANDARD_OBJECT_IDS } from 'src/engine/workspace-manager/workspace-sync-metadata/constants/standard-object-ids';
 import { FavoriteWorkspaceEntity } from 'src/modules/favorite/standard-objects/favorite.workspace-entity';
+import { TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
 import { WorkflowEventListenerWorkspaceEntity } from 'src/modules/workflow/common/standard-objects/workflow-event-listener.workspace-entity';
 import { WorkflowRunWorkspaceEntity } from 'src/modules/workflow/common/standard-objects/workflow-run.workspace-entity';
 import { WorkflowVersionWorkspaceEntity } from 'src/modules/workflow/common/standard-objects/workflow-version.workspace-entity';
@@ -109,9 +110,8 @@ export class WorkflowWorkspaceEntity extends BaseWorkspaceEntity {
     description: 'Versões do workflow vinculadas ao workflow.',
     icon: 'IconVersions',
     inverseSideTarget: () => WorkflowVersionWorkspaceEntity,
-    onDelete: RelationOnDeleteAction.SET_NULL,
+    onDelete: RelationOnDeleteAction.CASCADE,
   })
-  @WorkspaceIsNullable()
   versions: Relation<WorkflowVersionWorkspaceEntity[]>;
 
   @WorkspaceRelation({
@@ -119,34 +119,43 @@ export class WorkflowWorkspaceEntity extends BaseWorkspaceEntity {
     type: RelationMetadataType.ONE_TO_MANY,
     label: 'Execuções',
     description: 'Execuções de workflow vinculadas ao workflow.',
-    icon: 'IconVersions',
+    icon: 'IconRun',
     inverseSideTarget: () => WorkflowRunWorkspaceEntity,
-    onDelete: RelationOnDeleteAction.SET_NULL,
+    onDelete: RelationOnDeleteAction.CASCADE,
   })
-  @WorkspaceIsNullable()
-  runs: Relation<WorkflowRunWorkspaceEntity>;
+  runs: Relation<WorkflowRunWorkspaceEntity[]>;
 
   @WorkspaceRelation({
     standardId: WORKFLOW_STANDARD_FIELD_IDS.eventListeners,
     type: RelationMetadataType.ONE_TO_MANY,
     label: 'Ouvintes de Evento',
     description: 'Ouvintes de evento do workflow vinculados ao workflow.',
-    icon: 'IconVersions',
     inverseSideTarget: () => WorkflowEventListenerWorkspaceEntity,
-    onDelete: RelationOnDeleteAction.SET_NULL,
+    onDelete: RelationOnDeleteAction.CASCADE,
   })
-  @WorkspaceIsNullable()
+  @WorkspaceIsSystem()
   eventListeners: Relation<WorkflowEventListenerWorkspaceEntity[]>;
 
   @WorkspaceRelation({
     standardId: WORKFLOW_STANDARD_FIELD_IDS.favorites,
     type: RelationMetadataType.ONE_TO_MANY,
     label: 'Favoritos',
-    description: 'Favoritos vinculados ao contato',
+    description: 'Favoritos vinculados ao workflow',
     icon: 'IconHeart',
     inverseSideTarget: () => FavoriteWorkspaceEntity,
     onDelete: RelationOnDeleteAction.CASCADE,
   })
   @WorkspaceIsSystem()
   favorites: Relation<FavoriteWorkspaceEntity[]>;
+
+  @WorkspaceRelation({
+    standardId: WORKFLOW_STANDARD_FIELD_IDS.timelineActivities,
+    type: RelationMetadataType.ONE_TO_MANY,
+    label: 'Atividades da Linha do Tempo',
+    description: 'Atividades da linha do tempo vinculadas ao workflow',
+    inverseSideTarget: () => TimelineActivityWorkspaceEntity,
+    onDelete: RelationOnDeleteAction.CASCADE,
+  })
+  @WorkspaceIsSystem()
+  timelineActivities: Relation<TimelineActivityWorkspaceEntity[]>;
 }

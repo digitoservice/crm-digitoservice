@@ -1,5 +1,6 @@
+import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
 import styled from '@emotion/styled';
-import { H2Title, IconCode, IconPlus } from 'twenty-ui';
+import { H2Title, IconPlus, MOBILE_VIEWPORT } from 'twenty-ui';
 
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { SettingsApiKeysTable } from '@/settings/developers/components/SettingsApiKeysTable';
@@ -15,12 +16,22 @@ const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-top: ${({ theme }) => theme.spacing(2)};
+  @media (max-width: ${MOBILE_VIEWPORT}px) {
+    padding-top: ${({ theme }) => theme.spacing(5)};
+  }
+`;
+
+const StyledContainer = styled.div<{ isMobile: boolean }>`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const SettingsDevelopers = () => {
+  const isMobile = useIsMobile();
   return (
     <SubMenuTopBarContainer
-      Icon={IconCode}
       title="Desenvolvedores"
       actionButton={<SettingsReadDocumentationButton />}
       links={[
@@ -32,38 +43,40 @@ export const SettingsDevelopers = () => {
       ]}
     >
       <SettingsPageContainer>
-        <Section>
-          <H2Title
-            title="API keys"
-            description="APIs keys ativas criadas por você ou sua equipe."
-          />
-          <SettingsApiKeysTable />
-          <StyledButtonContainer>
-            <Button
-              Icon={IconPlus}
-              title="Criar API key"
-              size="small"
-              variant="secondary"
-              to={'/settings/developers/api-keys/new'}
+        <StyledContainer isMobile={isMobile}>
+          <Section>
+            <H2Title
+              title="API keys"
+              description="APIs keys ativas criadas por você ou sua equipe."
             />
-          </StyledButtonContainer>
-        </Section>
-        <Section>
-          <H2Title
-            title="Webhooks"
-            description="Estabeleça endpoints de Webhook para notificações em eventos assíncronos."
-          />
-          <SettingsWebhooksTable />
-          <StyledButtonContainer>
-            <Button
-              Icon={IconPlus}
-              title="Criar Webhook"
-              size="small"
-              variant="secondary"
-              to={'/settings/developers/webhooks/new'}
+            <SettingsApiKeysTable />
+            <StyledButtonContainer>
+              <Button
+                Icon={IconPlus}
+                title="Criar API key"
+                size="small"
+                variant="secondary"
+                to={'/settings/developers/api-keys/new'}
+              />
+            </StyledButtonContainer>
+          </Section>
+          <Section>
+            <H2Title
+              title="Webhooks"
+              description="Estabeleça endpoints de Webhook para notificações em eventos assíncronos."
             />
-          </StyledButtonContainer>
-        </Section>
+            <SettingsWebhooksTable />
+            <StyledButtonContainer>
+              <Button
+                Icon={IconPlus}
+                title="Criar Webhook"
+                size="small"
+                variant="secondary"
+                to={'/settings/developers/webhooks/new'}
+              />
+            </StyledButtonContainer>
+          </Section>
+        </StyledContainer>
       </SettingsPageContainer>
     </SubMenuTopBarContainer>
   );

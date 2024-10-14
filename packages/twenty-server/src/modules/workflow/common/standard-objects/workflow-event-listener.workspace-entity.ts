@@ -34,7 +34,6 @@ export class WorkflowEventListenerWorkspaceEntity extends BaseWorkspaceEntity {
     type: FieldMetadataType.TEXT,
     label: 'Nome',
     description: 'O nome do ouvinte de evento do workflow',
-    icon: 'IconPhoneCheck',
   })
   eventName: string;
 

@@ -6,7 +6,6 @@ import {
   FieldEmailsValue,
   FieldFullNameValue,
   FieldLinksValue,
-  FieldLinkValue,
   FieldPhonesValue,
 } from '@/object-record/record-field/types/FieldMetadata';
 import { SettingsFieldTypeConfig } from '@/settings/data-model/constants/SettingsNonCompositeFieldTypeConfigs';
@@ -38,8 +37,8 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
   [FieldMetadataType.Currency]: {
     label: 'Moeda',
     Icon: IllustrationIconCurrency,
-    subFields: ['amountMicros', 'currencyCode'],
-    filterableSubFields: ['amountMicros', 'currencyCode'],
+    subFields: ['amountMicros'],
+    filterableSubFields: ['amountMicros'],
     labelBySubField: {
       amountMicros: 'Valor',
       currencyCode: 'Moeda',
@@ -69,18 +68,6 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     },
     category: 'Basic',
   } as const satisfies SettingsCompositeFieldTypeConfig<FieldEmailsValue>,
-  [FieldMetadataType.Link]: {
-    label: 'Link',
-    Icon: IllustrationIconLink,
-    exampleValue: { url: 'www.example.com', label: '' },
-    category: 'Basic',
-    subFields: ['url', 'label'],
-    filterableSubFields: ['url', 'label'],
-    labelBySubField: {
-      url: 'URL',
-      label: 'Rótulo',
-    },
-  } as const satisfies SettingsCompositeFieldTypeConfig<FieldLinkValue>,
   [FieldMetadataType.Links]: {
     label: 'Links',
     Icon: IllustrationIconLink,
@@ -178,8 +165,8 @@ export const SETTINGS_COMPOSITE_FIELD_TYPE_CONFIGS = {
     label: 'Ator',
     Icon: IllustrationIconSetting,
     category: 'Basic',
-    subFields: ['source', 'name', 'workspaceMemberId'],
-    filterableSubFields: ['source', 'name', 'workspaceMemberId'],
+    subFields: ['source'],
+    filterableSubFields: ['source'],
     labelBySubField: {
       source: 'Fonte',
       name: 'Nome',

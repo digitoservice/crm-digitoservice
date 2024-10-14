@@ -5,15 +5,21 @@ import {
   NodeField,
 } from '../utils/data.types';
 
+const getListFromFieldMetadataType = (fieldMetadataType: FieldMetadataType) => {
+  return fieldMetadataType === FieldMetadataType.ARRAY;
+};
+
 const getTypeFromFieldMetadataType = (
-  fieldMetadataType: string,
+  fieldMetadataType: FieldMetadataType,
 ): string | undefined => {
   switch (fieldMetadataType) {
     case FieldMetadataType.UUID:
     case FieldMetadataType.TEXT:
+    case FieldMetadataType.RICH_TEXT:
     case FieldMetadataType.PHONE:
     case FieldMetadataType.EMAIL:
     case FieldMetadataType.LINK:
+    case FieldMetadataType.ARRAY:
     case FieldMetadataType.RATING:
       return 'string';
     case FieldMetadataType.DATE_TIME:
@@ -23,6 +29,7 @@ const getTypeFromFieldMetadataType = (
     case FieldMetadataType.BOOLEAN:
       return 'boolean';
     case FieldMetadataType.NUMBER:
+    case FieldMetadataType.POSITION:
       return 'integer';
     case FieldMetadataType.NUMERIC:
       return 'number';
@@ -35,7 +42,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
   switch (nodeField.type) {
     case FieldMetadataType.FULL_NAME: {
       const firstName: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'firstName',
         label: 'Nome',
         description: 'Nome',
@@ -43,7 +50,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const lastName: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'lastName',
         label: 'Sobrenome',
         description: 'Sobrenome',
@@ -54,7 +61,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
     }
     case FieldMetadataType.LINK: {
       const url: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'url',
         label: 'Url',
         description: 'URL do Link',
@@ -62,7 +69,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const label: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'label',
         label: 'Rótulo',
         description: 'Rótulo do Link',
@@ -73,7 +80,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
     }
     case FieldMetadataType.CURRENCY: {
       const amountMicros: NodeField = {
-        type: 'NUMBER',
+        type: FieldMetadataType.NUMBER,
         name: 'amountMicros',
         label: 'Quantia em Micros',
         description: 'Quantia em Micros. ex: defina 3210000 para R$3.21',
@@ -81,7 +88,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const currencyCode: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'currencyCode',
         label: 'Código da Moeda',
         description: 'Código da Moeda. ex: BRL, USD, EUR, etc...',
@@ -92,7 +99,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
     }
     case FieldMetadataType.ADDRESS: {
       const address1: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressStreet1',
         label: 'Endereço',
         description: 'Endereço',
@@ -100,7 +107,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const address2: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressStreet2',
         label: 'Complemento do Endereço',
         description: 'Complemento do Endereço',
@@ -108,7 +115,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const city: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressCity',
         label: 'Cidade',
         description: 'Cidade',
@@ -116,7 +123,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const state: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressState',
         label: 'Estado',
         description: 'Estado',
@@ -124,7 +131,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const postalCode: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressPostalCode',
         label: 'Código Postal',
         description: 'Código Postal',
@@ -132,7 +139,7 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       const country: NodeField = {
-        type: 'TEXT',
+        type: FieldMetadataType.TEXT,
         name: 'addressCountry',
         label: 'País',
         description: 'País',
@@ -140,6 +147,84 @@ const get_subfieldsFromField = (nodeField: NodeField): NodeField[] => {
         defaultValue: null,
       };
       return [address1, address2, city, state, postalCode, country];
+    }
+    case FieldMetadataType.PHONES: {
+      const primaryPhoneNumber: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'primaryPhoneNumber',
+        label: 'Primary Phone Number',
+        description: 'Primary Phone Number. 600112233',
+        isNullable: true,
+        defaultValue: null,
+      };
+      const primaryPhoneCountryCode: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'primaryPhoneCountryCode',
+        label: 'Primary Phone Country Code',
+        description: 'Primary Phone Country Code. eg: +33',
+        isNullable: true,
+        defaultValue: null,
+      };
+      const additionalPhones: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'additionalPhones',
+        label: 'Additional Phones',
+        description: 'Additional Phones',
+        isNullable: true,
+        defaultValue: null,
+        placeholder: '{ number: "", countryCode: "" }',
+        list: true,
+      };
+      return [primaryPhoneNumber, primaryPhoneCountryCode, additionalPhones];
+    }
+    case FieldMetadataType.EMAILS: {
+      const primaryEmail: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'primaryEmail',
+        label: 'Primary Email',
+        description: 'Primary Email',
+        isNullable: true,
+        defaultValue: null,
+      };
+      const additionalEmails: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'additionalEmails',
+        label: 'Additional Emails',
+        description: 'Additional Emails',
+        list: true,
+        isNullable: true,
+        defaultValue: null,
+      };
+      return [primaryEmail, additionalEmails];
+    }
+    case FieldMetadataType.LINKS: {
+      const primaryLinkLabel: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'primaryLinkLabel',
+        label: 'Primary Link Label',
+        description: 'Primary Link Label',
+        isNullable: true,
+        defaultValue: null,
+      };
+      const primaryLinkUrl: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'primaryLinkUrl',
+        label: 'Primary Link Url',
+        description: 'Primary Link Url',
+        isNullable: true,
+        defaultValue: null,
+      };
+      const secondaryLinks: NodeField = {
+        type: FieldMetadataType.TEXT,
+        name: 'secondaryLinks',
+        label: 'Secondary Links',
+        description: 'Secondary Links',
+        isNullable: true,
+        defaultValue: null,
+        placeholder: '{ url: "", label: "" }',
+        list: true,
+      };
+      return [primaryLinkLabel, primaryLinkUrl, secondaryLinks];
     }
     default:
       throw new Error(`Unknown nodeField type: ${nodeField.type}`);
@@ -161,6 +246,9 @@ export const computeInputFields = (
       case FieldMetadataType.FULL_NAME:
       case FieldMetadataType.LINK:
       case FieldMetadataType.CURRENCY:
+      case FieldMetadataType.PHONES:
+      case FieldMetadataType.EMAILS:
+      case FieldMetadataType.LINKS:
       case FieldMetadataType.ADDRESS:
         for (const subNodeField of get_subfieldsFromField(nodeField)) {
           const field = {
@@ -169,12 +257,15 @@ export const computeInputFields = (
             type: getTypeFromFieldMetadataType(subNodeField.type),
             helpText: `${nodeField.description}: ${subNodeField.description}`,
             required: isFieldRequired(subNodeField),
+            list: !!subNodeField.list,
+            placeholder: subNodeField.placeholder,
           } as InputField;
           result.push(field);
         }
         break;
       case FieldMetadataType.UUID:
       case FieldMetadataType.TEXT:
+      case FieldMetadataType.RICH_TEXT:
       case FieldMetadataType.PHONE:
       case FieldMetadataType.EMAIL:
       case FieldMetadataType.DATE_TIME:
@@ -182,6 +273,8 @@ export const computeInputFields = (
       case FieldMetadataType.BOOLEAN:
       case FieldMetadataType.NUMBER:
       case FieldMetadataType.NUMERIC:
+      case FieldMetadataType.POSITION:
+      case FieldMetadataType.ARRAY:
       case FieldMetadataType.RATING: {
         const nodeFieldType = getTypeFromFieldMetadataType(nodeField.type);
         if (!nodeFieldType) {
@@ -196,6 +289,8 @@ export const computeInputFields = (
           type: nodeFieldType,
           helpText: nodeField.description,
           required,
+          list: getListFromFieldMetadataType(nodeField.type),
+          placeholder: undefined,
         };
         result.push(field);
         break;
