@@ -42,9 +42,7 @@ services:
     restart: always
 
   db:
-    build:
-      context: .
-      dockerfile: packages/twenty-docker/twenty-postgres/Dockerfile
+    image: twentycrm/twenty-postgres:${TAG}
     volumes:
       - db-data:/bitnami/postgresql
     ports:

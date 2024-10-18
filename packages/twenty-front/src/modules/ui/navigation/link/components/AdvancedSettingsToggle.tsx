@@ -52,7 +52,7 @@ export const AdvancedSettingsToggle = () => {
         <StyledIconTool size={12} color={MAIN_COLORS.yellow} />
       </StyledIconContainer>
       <StyledToggleContainer>
-        <StyledText>Advanced:</StyledText>
+        <StyledText>Avançado:</StyledText>
         <Toggle
           onChange={onChange}
           color={MAIN_COLORS.yellow}

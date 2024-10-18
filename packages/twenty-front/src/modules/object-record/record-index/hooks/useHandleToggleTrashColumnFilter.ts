@@ -55,7 +55,7 @@ export const useHandleToggleTrashColumnFilter = ({
       operand: ViewFilterOperand.IsNotEmpty,
       displayValue: '',
       definition: {
-        label: `Excluídos`,
+        label: `Excluído`,
         iconName: 'IconTrash',
         fieldMetadataId: trashFieldMetadata.id,
         type: filterType,

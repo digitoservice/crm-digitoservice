@@ -13,7 +13,7 @@ export const useGraphData = (webhookId: string) => {
         windowLength: windowLengthGraphOption,
       });
     } catch (error) {
-      enqueueSnackBar('Something went wrong while fetching webhook usage', {
+      enqueueSnackBar('Algo deu errado ao buscar o uso do webhook', {
         variant: SnackBarVariant.Error,
       });
       return [];

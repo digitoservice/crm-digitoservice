@@ -42,7 +42,7 @@ export type MenuItemCommandHotKeysProps = {
 export const MenuItemCommandHotKeys = ({
   firstHotKey,
   secondHotKey,
-  joinLabel = 'then',
+  joinLabel = 'depois',
 }: MenuItemCommandHotKeysProps) => {
   return (
     <StyledCommandText>

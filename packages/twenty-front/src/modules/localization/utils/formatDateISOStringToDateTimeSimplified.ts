@@ -2,6 +2,7 @@ import { DATE_FORMAT_WITHOUT_YEAR } from '@/localization/constants/DateFormatWit
 import { TimeFormat } from '@/localization/constants/TimeFormat';
 import { detectDateFormat } from '@/localization/utils/detectDateFormat';
 import { formatInTimeZone } from 'date-fns-tz';
+import { ptBR } from 'date-fns/locale';
 
 export const formatDateISOStringToDateTimeSimplified = (
   date: Date,
@@ -14,5 +15,6 @@ export const formatDateISOStringToDateTimeSimplified = (
     date,
     timeZone,
     `${simplifiedDateFormat} · ${timeFormat}`,
+    { locale: ptBR },
   );
 };
