@@ -54,7 +54,7 @@ export const TabList = ({
 
   return (
     <TabListScope tabListScopeId={tabListId}>
-      <ScrollWrapper hideY contextProviderName="tabList">
+      <ScrollWrapper enableYScroll={false} contextProviderName="tabList">
         <StyledContainer className={className}>
           {tabs
             .filter((tab) => !tab.hide)

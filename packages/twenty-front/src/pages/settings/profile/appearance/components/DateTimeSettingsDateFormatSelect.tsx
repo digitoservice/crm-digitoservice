@@ -21,7 +21,7 @@ export const DateTimeSettingsDateFormatSelect = ({
 
   const usedTimeZone = timeZone === 'system' ? systemTimeZone : timeZone;
 
-  const systemDateFormat = detectDateFormat();
+  const systemDateFormat = DateFormat[detectDateFormat()];
 
   return (
     <Select

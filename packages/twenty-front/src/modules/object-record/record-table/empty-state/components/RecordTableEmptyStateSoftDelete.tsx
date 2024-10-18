@@ -28,7 +28,7 @@ export const RecordTableEmptyStateSoftDelete = () => {
     deleteCombinedViewFilter(
       tableFilters.find(
         (filter) =>
-          filter.definition.label === 'Excluído em' &&
+          filter.definition.label === 'Excluídos' &&
           filter.operand === 'isNotEmpty',
       )?.id ?? '',
     );

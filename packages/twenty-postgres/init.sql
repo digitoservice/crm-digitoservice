@@ -1,2 +1,0 @@
-CREATE DATABASE "default";
-CREATE DATABASE "test";
