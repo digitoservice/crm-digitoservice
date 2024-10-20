@@ -37,7 +37,7 @@ export const useRecordShowContainerTabs = (
   return [
     {
       id: 'richText',
-      title: 'Note',
+      title: 'Nota',
       Icon: IconNotes,
       hide:
         loading ||
@@ -46,19 +46,19 @@ export const useRecordShowContainerTabs = (
     },
     {
       id: 'fields',
-      title: 'Fields',
+      title: 'Campos',
       Icon: IconList,
       hide: !(isMobile || isInRightDrawer),
     },
     {
       id: 'timeline',
-      title: 'Timeline',
+      title: 'Linha do Tempo',
       Icon: IconTimelineEvent,
       hide: isInRightDrawer || isWorkflow || isWorkflowVersion,
     },
     {
       id: 'tasks',
-      title: 'Tasks',
+      title: 'Tarefas',
       Icon: IconCheckbox,
       hide:
         targetObjectNameSingular === CoreObjectNameSingular.Note ||
@@ -68,7 +68,7 @@ export const useRecordShowContainerTabs = (
     },
     {
       id: 'notes',
-      title: 'Notes',
+      title: 'Notas',
       Icon: IconNotes,
       hide:
         targetObjectNameSingular === CoreObjectNameSingular.Note ||
@@ -78,7 +78,7 @@ export const useRecordShowContainerTabs = (
     },
     {
       id: 'files',
-      title: 'Files',
+      title: 'Arquivos',
       Icon: IconPaperclip,
       hide: isWorkflow || isWorkflowVersion,
     },
@@ -90,7 +90,7 @@ export const useRecordShowContainerTabs = (
     },
     {
       id: 'calendar',
-      title: 'Calendar',
+      title: 'Calendário',
       Icon: IconCalendarEvent,
       hide: !shouldDisplayCalendarTab,
     },
@@ -102,7 +102,7 @@ export const useRecordShowContainerTabs = (
     },
     {
       id: 'workflowVersion',
-      title: 'Workflow Version',
+      title: 'Versão do Workflow',
       Icon: IconSettings,
       hide: !isWorkflowVersion,
     },
