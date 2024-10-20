@@ -42,7 +42,9 @@ services:
     restart: always
 
   db:
-    image: twentycrm/twenty-postgres:${TAG}
+    build:
+      context: .
+      dockerfile: packages/twenty-docker/twenty-postgres/Dockerfile
     volumes:
       - db-data:/bitnami/postgresql
     ports:
@@ -58,10 +60,10 @@ services:
 
   redis:
     image: redis:latest
-    ports:
-      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis-data:/data
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
     healthcheck:
       test: redis-cli ping
       interval: 5s
