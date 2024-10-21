@@ -24,8 +24,6 @@ services:
       timeout: 5s
       retries: 10
     restart: always
-    networks:
-      - app-network
 
   worker:
     build:
@@ -42,8 +40,6 @@ services:
       redis:
         condition: service_healthy
     restart: always
-    networks:
-      - app-network
 
   db:
     build:
@@ -61,8 +57,6 @@ services:
       timeout: 5s
       retries: 10
     restart: always
-    networks:
-      - app-network
 
   redis:
     image: redis:latest
@@ -76,15 +70,9 @@ services:
       timeout: 5s
       retries: 10
     restart: always
-    networks:
-      - app-network
 
 volumes:
   docker-data:
   db-data:
   server-local-data:
   redis-data:
-
-networks:
-  app-network:
-    driver: bridge

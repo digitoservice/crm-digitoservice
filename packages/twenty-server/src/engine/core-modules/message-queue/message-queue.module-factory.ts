@@ -2,7 +2,6 @@ import { ConnectionOptions } from 'tls';
 
 import { EnvironmentService } from 'src/engine/core-modules/environment/environment.service';
 import {
-  BullMQDriverFactoryOptions,
   MessageQueueDriverType,
   MessageQueueModuleOptions,
   PgBossDriverFactoryOptions,
@@ -37,20 +36,29 @@ export const messageQueueModuleFactory = async (
       } satisfies PgBossDriverFactoryOptions;
     }
     case MessageQueueDriverType.BullMQ: {
-      const connectionString = environmentService.get('REDIS_URL');
+      const host = environmentService.get('REDIS_HOST');
+      const port = environmentService.get('REDIS_PORT');
 
-      if (!connectionString) {
+      if (!(host && port)) {
         throw new Error(
-          `${MessageQueueDriverType.BullMQ} message queue requires REDIS_URL to be defined, check your .env file`,
+          `${MessageQueueDriverType.BullMQ} message queue requires host: ${host} and port: ${port} to be defined, check your .env file`,
         );
       }
+
+      const username = environmentService.get('REDIS_USERNAME');
+      const password = environmentService.get('REDIS_PASSWORD');
 
       return {
         type: MessageQueueDriverType.BullMQ,
         options: {
-          connection: connectionString as ConnectionOptions,
+          connection: {
+            host,
+            port,
+            username,
+            password,
+          },
         },
-      } satisfies BullMQDriverFactoryOptions;
+      };
     }
     default:
       throw new Error(
