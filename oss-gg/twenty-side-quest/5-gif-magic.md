@@ -37,4 +37,9 @@ Your turn 👇
 
 » 20-October-2024 by Satesh Charan
 » Link to gif: https://giphy.com/gifs/rXjvGBrTqu7vvhEsvR
----
+
+» 20-October-2024 by Naprila
+» Link to gif: https://giphy.com/gifs/uiTAwFJ0BWQsQb7jbM
+
+» 22-October-2024 by Zia Ur Rehman Khan
+» Link to gif: https://giphy.com/gifs/MG5FQSrG1mxf1N5qnA

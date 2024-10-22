@@ -2,10 +2,11 @@ import { CalendarChannel } from '@/accounts/types/CalendarChannel';
 import { CoreObjectNameSingular } from '@/object-metadata/types/CoreObjectNameSingular';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { SettingsAccountsEventVisibilitySettingsCard } from '@/settings/accounts/components/SettingsAccountsCalendarVisibilitySettingsCard';
-import { SettingsAccountsToggleSettingCard } from '@/settings/accounts/components/SettingsAccountsToggleSettingCard';
+import { SettingsOptionCardContent } from '@/settings/components/SettingsOptionCardContent';
+import { Card } from '@/ui/layout/card/components/Card';
 import styled from '@emotion/styled';
 import { Section } from '@react-email/components';
-import { H2Title } from 'twenty-ui';
+import { H2Title, Toggle } from 'twenty-ui';
 import { CalendarChannelVisibility } from '~/generated-metadata/graphql';
 
 const StyledDetailsContainer = styled.div`
@@ -20,6 +21,10 @@ type SettingsAccountsCalendarChannelDetailsProps = {
     'id' | 'visibility' | 'isContactAutoCreationEnabled' | 'isSyncEnabled'
   >;
 };
+
+const StyledToggle = styled(Toggle)`
+  margin-left: auto;
+`;
 
 export const SettingsAccountsCalendarChannelDetails = ({
   calendarChannel,
@@ -63,16 +68,21 @@ export const SettingsAccountsCalendarChannelDetails = ({
           title="Criação automática de contatos"
           description="Crie automaticamente contatos para as pessoas com quem você participou de um evento."
         />
-        <SettingsAccountsToggleSettingCard
-          parameters={[
-            {
-              value: !!calendarChannel.isContactAutoCreationEnabled,
-              title: 'Criação automática',
-              description: 'Crie automaticamente contatos para as pessoas.',
-              onToggle: handleContactAutoCreationToggle,
-            },
-          ]}
-        />
+        <Card>
+          <SettingsOptionCardContent
+            title="Criação automática"
+            description="Crie automaticamente contatos para as pessoas."
+            onClick={() =>
+              handleContactAutoCreationToggle(
+                !calendarChannel.isContactAutoCreationEnabled,
+              )
+            }
+          >
+            <StyledToggle
+              value={calendarChannel.isContactAutoCreationEnabled}
+            />
+          </SettingsOptionCardContent>
+        </Card>
       </Section>
     </StyledDetailsContainer>
   );

@@ -12,13 +12,13 @@ import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { Loader } from '@/ui/feedback/loader/components/Loader';
 import { MainButton } from '@/ui/input/button/components/MainButton';
 import { useWorkspaceSwitching } from '@/ui/navigation/navigation-drawer/hooks/useWorkspaceSwitching';
-import { AnimatedEaseIn } from '@/ui/utilities/animation/components/AnimatedEaseIn';
+import { useSearchParams } from 'react-router-dom';
+import { AnimatedEaseIn } from 'twenty-ui';
 import {
-  useAddUserToWorkspaceMutation,
   useAddUserToWorkspaceByInviteTokenMutation,
+  useAddUserToWorkspaceMutation,
 } from '~/generated/graphql';
 import { isDefined } from '~/utils/isDefined';
-import { useSearchParams } from 'react-router-dom';
 
 const StyledContentContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(8)};
@@ -91,25 +91,7 @@ export const Invite = () => {
               fullWidth
             />
           </StyledContentContainer>
-          <FooterNote>
-            Ao usar os serviços da Digito Service, você concorda com os{' '}
-            <a
-              href="https://c.digitoservice.com/legal/terms"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Termos de Serviço
-            </a>{' '}
-            e{' '}
-            <a
-              href="https://c.digitoservice.com/legal/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Política de Privacidade
-            </a>
-            .
-          </FooterNote>
+          <FooterNote />
         </>
       ) : (
         <SignInUpForm />
