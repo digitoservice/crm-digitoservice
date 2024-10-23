@@ -55,7 +55,7 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
 
   return (
     <SubMenuTopBarContainer
-      title="New SSO Configuration"
+      title="Nova Configuração de SSO"
       actionButton={
         <SaveAndCancelButtons
           isSaveDisabled={!formConfig.formState.isValid}
@@ -69,10 +69,10 @@ export const SettingsSecuritySSOIdentifyProvider = () => {
           href: getSettingsPagePath(SettingsPath.Workspace),
         },
         {
-          children: 'Security',
+          children: 'Segurança',
           href: getSettingsPagePath(SettingsPath.Security),
         },
-        { children: 'New' },
+        { children: 'Novo' },
       ]}
     >
       <FormProvider

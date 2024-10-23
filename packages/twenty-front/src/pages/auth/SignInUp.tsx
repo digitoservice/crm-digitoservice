@@ -27,7 +27,7 @@ export const SignInUp = () => {
       return 'Olá, Bem-vindo!';
     }
     if (signInUpStep === SignInUpStep.SSOWorkspaceSelection) {
-      return 'Choose SSO connection';
+      return 'Escolha a conexão SSO';
     }
     return signInUpMode === SignInUpMode.SignIn
       ? 'Entrar no CRM'

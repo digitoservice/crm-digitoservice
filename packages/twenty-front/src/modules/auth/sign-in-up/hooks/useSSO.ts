@@ -48,7 +48,7 @@ export const useSSO = () => {
       !authorizationUrlForSSOResult.data?.getAuthorizationUrl.authorizationURL
     ) {
       return enqueueSnackBar(
-        authorizationUrlForSSOResult.errors?.[0]?.message ?? 'Unknown error',
+        authorizationUrlForSSOResult.errors?.[0]?.message ?? 'Erro desconhecido',
         {
           variant: SnackBarVariant.Error,
         },

@@ -122,7 +122,7 @@ export const useSignInUp = (form: UseFormReturn<Form>) => {
       !result.data?.findAvailableSSOIdentityProviders ||
       result.data?.findAvailableSSOIdentityProviders.length === 0
     ) {
-      enqueueSnackBar('No workspaces with SSO found', {
+      enqueueSnackBar('Nenhum workspace com SSO encontrado', {
         variant: SnackBarVariant.Error,
       });
       return;

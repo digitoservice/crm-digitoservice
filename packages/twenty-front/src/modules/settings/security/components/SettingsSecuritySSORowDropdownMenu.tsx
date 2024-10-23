@@ -40,7 +40,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
       identityProviderId,
     });
     if (isDefined(result.errors)) {
-      enqueueSnackBar('Error deleting SSO Identity Provider', {
+      enqueueSnackBar('Erro ao deletar o Provedor de Identidade SSO', {
         variant: SnackBarVariant.Error,
         duration: 2000,
       });
@@ -58,7 +58,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
           : SsoIdentityProviderStatus.Active,
     });
     if (isDefined(result.errors)) {
-      enqueueSnackBar('Error editing SSO Identity Provider', {
+      enqueueSnackBar('Erro ao editar o Provedor de Identidade SSO', {
         variant: SnackBarVariant.Error,
         duration: 2000,
       });
@@ -79,7 +79,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
             <MenuItem
               accent="default"
               LeftIcon={IconArchive}
-              text={SSOIdp.status === 'Active' ? 'Deactivate' : 'Activate'}
+              text={SSOIdp.status === 'Active' ? 'Desativar' : 'Ativar'}
               onClick={() => {
                 toggleSSOIdentityProviderStatus(SSOIdp.id);
                 closeDropdown();
@@ -88,7 +88,7 @@ export const SettingsSecuritySSORowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text="Delete"
+              text="Excluir"
               onClick={() => {
                 handleDeleteSSOIdentityProvider(SSOIdp.id);
                 closeDropdown();

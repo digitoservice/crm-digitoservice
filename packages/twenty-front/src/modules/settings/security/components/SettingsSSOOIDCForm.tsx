@@ -44,15 +44,15 @@ export const SettingsSSOOIDCForm = () => {
     <>
       <Section>
         <H2Title
-          title="Client Settings"
-          description="Provide your OIDC provider details"
+          title="Configurações do Cliente"
+          description="Forneça os detalhes do seu provedor OIDC"
         />
         <StyledInputsContainer>
           <StyledContainer>
             <StyledLinkContainer>
               <TextInput
                 readOnly={true}
-                label="Authorized URI"
+                label="URI Autorizada"
                 value={authorizedUrl}
                 fullWidth
               />
@@ -60,9 +60,9 @@ export const SettingsSSOOIDCForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title="Copy"
+                title="Copiar"
                 onClick={() => {
-                  enqueueSnackBar('Authorized Url copied to clipboard', {
+                  enqueueSnackBar('URL Autorizada copiada para a área de transferência', {
                     variant: SnackBarVariant.Success,
                     icon: <IconCopy size={theme.icon.size.md} />,
                     duration: 2000,
@@ -76,7 +76,7 @@ export const SettingsSSOOIDCForm = () => {
             <StyledLinkContainer>
               <TextInput
                 readOnly={true}
-                label="Redirection URI"
+                label="URI de Redirecionamento"
                 value={redirectionUrl}
                 fullWidth
               />
@@ -84,9 +84,9 @@ export const SettingsSSOOIDCForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title="Copy"
+                title="Copiar"
                 onClick={() => {
-                  enqueueSnackBar('Redirect Url copied to clipboard', {
+                  enqueueSnackBar('URL de Redirecionamento copiada para a área de transferência', {
                     variant: SnackBarVariant.Success,
                     icon: <IconCopy size={theme.icon.size.md} />,
                     duration: 2000,
@@ -100,8 +100,8 @@ export const SettingsSSOOIDCForm = () => {
       </Section>
       <Section>
         <H2Title
-          title="Identity Provider"
-          description="Enter the credentials to set the connection"
+          title="Provedor de Identidade"
+          description="Insira as credenciais para configurar a conexão"
         />
         <StyledInputsContainer>
           <Controller
@@ -110,7 +110,7 @@ export const SettingsSSOOIDCForm = () => {
             render={({ field: { onChange, value } }) => (
               <TextInput
                 autoComplete="off"
-                label="Client ID"
+                label="ID do Cliente"
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -125,7 +125,7 @@ export const SettingsSSOOIDCForm = () => {
               <TextInput
                 autoComplete="off"
                 type="password"
-                label="Client Secret"
+                label="Segredo do Cliente"
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -139,7 +139,7 @@ export const SettingsSSOOIDCForm = () => {
             render={({ field: { onChange, value } }) => (
               <TextInput
                 autoComplete="off"
-                label="Issuer URI"
+                label="URI do Emissor"
                 value={value}
                 onChange={onChange}
                 fullWidth

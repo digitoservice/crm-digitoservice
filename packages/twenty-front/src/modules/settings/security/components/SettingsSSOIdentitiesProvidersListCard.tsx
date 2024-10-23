@@ -52,7 +52,7 @@ export const SettingsSSOIdentitiesProvidersListCard = () => {
         <SettingsSSOIdentityProviderRowRightContainer SSOIdp={SSOIdp} />
       )}
       hasFooter
-      footerButtonLabel="Add SSO Identity Provider"
+      footerButtonLabel="Adicionar Provedor de Identidade SSO"
       onFooterButtonClick={() =>
         navigate(getSettingsPagePath(SettingsPath.NewSSOIdentityProvider))
       }

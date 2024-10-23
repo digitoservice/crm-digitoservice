@@ -20,21 +20,21 @@ const StyledContainer = styled.div`
 
 export const FooterNote = () => (
   <StyledContainer>
-    By using Twenty, you agree to the{' '}
+    Ao usar os serviços da Digito Service, você concorda com os{' '}
     <a
-      href="https://twenty.com/legal/terms"
+      href="https://c.digitoservice.com/legal/terms"
       target="_blank"
       rel="noopener noreferrer"
     >
-      Terms of Service
+      Termos de Serviço
     </a>{' '}
-    and{' '}
+    e{' '}
     <a
-      href="https://twenty.com/legal/privacy"
+      href="https://c.digitoservice.com/legal/privacy"
       target="_blank"
       rel="noopener noreferrer"
     >
-      Privacy Policy
+      Política de Privacidade
     </a>
     .
   </StyledContainer>

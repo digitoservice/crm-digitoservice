@@ -63,7 +63,7 @@ export const SettingsSSOSAMLForm = () => {
       const text = await e.target.files[0].text();
       const samlMetadataParsed = parseSAMLMetadataFromXMLFile(text);
       if (!samlMetadataParsed.success) {
-        enqueueSnackBar('Invalid File', {
+        enqueueSnackBar('Arquivo Inválido', {
           variant: SnackBarVariant.Error,
           duration: 2000,
         });
@@ -99,7 +99,7 @@ export const SettingsSSOSAMLForm = () => {
       `${REACT_APP_SERVER_BASE_URL}/auth/saml/metadata/${getValues('id')}`,
     );
     if (!response.ok) {
-      return enqueueSnackBar('Metadata file generation failed', {
+      return enqueueSnackBar('Falha na geração do arquivo de metadados', {
         variant: SnackBarVariant.Error,
         duration: 2000,
       });
@@ -119,8 +119,8 @@ export const SettingsSSOSAMLForm = () => {
     <>
       <Section>
         <H2Title
-          title="Identity Provider Metadata XML"
-          description="Upload the XML file with your connection infos"
+          title="Metadados do Provedor de Identidade XML"
+          description="Envie o arquivo XML com as informações da sua conexão"
         />
         <StyledUploadFileContainer>
           <StyledFileInput
@@ -132,7 +132,7 @@ export const SettingsSSOSAMLForm = () => {
           <Button
             Icon={IconUpload}
             onClick={handleUploadFileClick}
-            title="Upload file"
+            title="Enviar arquivo"
           ></Button>
           {isXMLMetadataValid() && (
             <IconCheck
@@ -145,15 +145,15 @@ export const SettingsSSOSAMLForm = () => {
       </Section>
       <Section>
         <H2Title
-          title="Service Provider Details"
-          description="Enter the infos to set the connection"
+          title="Detalhes do Provedor de Serviço"
+          description="Insira as informações para configurar a conexão"
         />
         <StyledInputsContainer>
           <StyledContainer>
             <Button
               Icon={IconDownload}
               onClick={downloadMetadata}
-              title="Download file"
+              title="Baixar arquivo"
             ></Button>
           </StyledContainer>
           <HorizontalSeparator visible={true} text={'Or'} />
@@ -161,7 +161,7 @@ export const SettingsSSOSAMLForm = () => {
             <StyledLinkContainer>
               <TextInput
                 disabled={true}
-                label="ACS Url"
+                label="URL ACS"
                 value={acsUrl}
                 fullWidth
               />
@@ -169,9 +169,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title="Copy"
+                title="Copiar"
                 onClick={() => {
-                  enqueueSnackBar('ACS Url copied to clipboard', {
+                  enqueueSnackBar('URL ACS copiada para a área de transferência', {
                     variant: SnackBarVariant.Success,
                     icon: <IconCopy size={theme.icon.size.md} />,
                     duration: 2000,
@@ -185,7 +185,7 @@ export const SettingsSSOSAMLForm = () => {
             <StyledLinkContainer>
               <TextInput
                 disabled={true}
-                label="Entity ID"
+                label="ID da Entidade"
                 value={entityID}
                 fullWidth
               />
@@ -193,9 +193,9 @@ export const SettingsSSOSAMLForm = () => {
             <StyledButtonCopy>
               <Button
                 Icon={IconCopy}
-                title="Copy"
+                title="Copiar"
                 onClick={() => {
-                  enqueueSnackBar('Entity ID copied to clipboard', {
+                  enqueueSnackBar('ID da Entidade copiado para a área de transferência', {
                     variant: SnackBarVariant.Success,
                     icon: <IconCopy size={theme.icon.size.md} />,
                     duration: 2000,

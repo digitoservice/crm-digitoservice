@@ -48,8 +48,8 @@ export const SettingsSecurityOptionsList = () => {
     <Card>
       <SettingsOptionCardContent
         Icon={IconLink}
-        title="Invite by Link"
-        description="Allow the invitation of new users by sharing an invite link."
+        title="Convite por Link"
+        description="Permitir o convite de novos usuários compartilhando um link de convite."
         onClick={() =>
           handleChange(!currentWorkspace?.isPublicInviteLinkEnabled)
         }

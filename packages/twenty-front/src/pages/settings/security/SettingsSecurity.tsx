@@ -12,25 +12,25 @@ import { Section } from '@/ui/layout/section/components/Section';
 export const SettingsSecurity = () => {
   return (
     <SubMenuTopBarContainer
-      title="Security"
+      title="Segurança"
       actionButton={<SettingsReadDocumentationButton />}
       links={[
         {
           children: 'Workspace',
           href: getSettingsPagePath(SettingsPath.Workspace),
         },
-        { children: 'Security' },
+        { children: 'Segurança' },
       ]}
     >
       <SettingsPageContainer>
         <Section>
-          <H2Title title="SSO" description="Configure an SSO connection" />
+          <H2Title title="SSO" description="Configure uma conexão SSO" />
           <SettingsSSOIdentitiesProvidersListCard />
         </Section>
         <Section>
           <H2Title
-            title="Other"
-            description="Customize your workspace security"
+            title="Outros"
+            description="Personalize a segurança do seu workspace"
           />
           <SettingsSecurityOptionsList />
         </Section>

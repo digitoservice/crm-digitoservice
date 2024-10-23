@@ -24,11 +24,11 @@ const StyledBody = styled(CardContent)`
 export const SettingsSSOIdentitiesProvidersListEmptyStateCard = () => {
   return (
     <Card>
-      <StyledHeader>{'No SSO Identity Providers Configured'}</StyledHeader>
+      <StyledHeader>{'Nenhum Provedor de Identidade SSO Configurado'}</StyledHeader>
       <StyledBody>
         <Button
           Icon={IconKey}
-          title="Add SSO Identity Provider"
+          title="Adicionar Provedor de Identidade SSO"
           variant="secondary"
           to={getSettingsPagePath(SettingsPath.NewSSOIdentityProvider)}
         />

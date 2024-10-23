@@ -42,7 +42,7 @@ export const ActionMenuBar = () => {
         scope: ActionBarHotkeyScope.ActionBar,
       }}
     >
-      <StyledLabel>{contextStoreNumberOfSelectedRecords} selected:</StyledLabel>
+      <StyledLabel>{contextStoreNumberOfSelectedRecords} selecionado:</StyledLabel>
       {actionMenuEntries.map((entry, index) => (
         <ActionMenuBarEntry key={index} entry={entry} />
       ))}

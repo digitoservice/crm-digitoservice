@@ -77,7 +77,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
   return (
     <SettingsPageContainer>
       <Section>
-        <H2Title title="Name" description="The name of your connection" />
+        <H2Title title="Nome" description="O nome da sua conexão" />
         <StyledInputsContainer>
           <Controller
             name="name"
@@ -85,7 +85,7 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
             render={({ field: { onChange, value } }) => (
               <TextInput
                 autoComplete="off"
-                label="Name"
+                label="Nome"
                 value={value}
                 onChange={onChange}
                 fullWidth
@@ -97,8 +97,8 @@ export const SettingsSSOIdentitiesProvidersForm = () => {
       </Section>
       <Section>
         <H2Title
-          title="Type"
-          description="Choose between OIDC and SAML protocols"
+          title="Tipo"
+          description="Escolha entre os protocolos OIDC e SAML"
         />
         <StyledInputsContainer>
           <Controller
